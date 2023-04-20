@@ -1,0 +1,560 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100%;
+  font-size: 14px;
+}
+
+
+p {
+
+  color: rgba(0, 0, 0, 1);
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+
+/*Partie Concernant toute la bar de navigation*/
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(13, 88, 200, 0.5);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.edfLogo {
+  width: 172px;
+  height: 77px;
+  background: url("../images/logoEDF.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 1;
+  margin: 15px 0 15px 15px;
+  overflow: hidden;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  opacity: 1;
+  width: 60%;
+  justify-content: space-around;
+  align-items: stretch;
+
+}
+
+.navigation p {
+  display: flex;
+        
+        align-items:center;
+        justify-content:center;
+  margin: 0px 0px 0px 0px;
+}
+
+nav p {
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  color: rgba(1, 25, 112, 1);
+  text-align: center;
+}
+
+nav a {
+  color: rgba(1, 25, 112, 1);
+  height: fit-content;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* partie du dropdownmenu */
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+.dropdown p{
+  height: 100%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 100%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* Partie du dash Board */
+
+.GeneralInformation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: rgba(13, 88, 200, 0.5);
+  margin-top: 20px;
+  width: 70%;
+
+  opacity: 1;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
+
+/* Choix du filtre */
+
+.displayChoice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 50%;
+  margin-top: 20px;
+
+}
+
+.displayChoice p{
+  flex-shrink: 0;
+}
+
+.choice {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.sendMailButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 0 10px 0 10px;
+  background: rgba(112, 114, 110, 1);
+  opacity: 1;
+  box-shadow: 0 0 5px #000000;
+}
+
+.sendMailButton:hover {
+  box-shadow: 0 0 20px #000000;
+}
+
+
+/* Partie d'affichage avec les cercles de couleurs */
+
+.differentCategories {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 90%;
+  opacity: 1;
+  padding-top: 20px;
+}
+
+.displayCategories {
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  opacity: 1;
+}
+
+.displayCategories p {
+  width: 150px;
+}
+
+.takeAllHeighLeft {
+  flex: 1;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.displayCategories a {
+  color: black;
+  text-decoration: none;
+}
+
+.TickBackground {
+  background: url("../images/tick.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.sizeOf100px {
+  width: 100px;
+  height: 100px;
+}
+
+.circle {
+
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.boxShadow {
+  box-shadow: 0 0 5px #000000;
+}
+
+.boxShadow.active,
+.boxShadow:hover {
+  box-shadow: 0 0 20px #000000
+}
+
+.GreenBackground {
+  background: rgba(38, 224, 21, 1);
+}
+
+.RedBackground {
+  background: rgba(224, 24, 11, 1);
+}
+
+.OrangeBackground {
+  background: rgba(247, 135, 52, 1);
+}
+
+.DarkOrangeBackground {
+  background: rgba(240, 103, 65, 1);
+}
+
+.circle p {
+  width: fit-content;
+}
+
+.center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+/* Affichage des données des fiches d'entreposages */
+
+.containerFiches {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fiche {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(2, 48, 89);
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.fiche p {
+  font-size: 14px;
+  color: white;
+}
+
+.nomColis {
+  background-color: rgba(4, 119, 191);
+  width: 100%;
+}
+
+.numDemande {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0px 10px 0px 10px;
+}
+
+.fitsize{
+  flex-shrink:0;
+}
+
+.affichageInfo {
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.affichageInfo p {
+  color: black;
+}
+
+.raisonFiche {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.caractéristiquesFiche {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.ligneInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.raisonTitle {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: rgba(4, 119, 191);
+}
+
+.raison {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: white;
+
+}
+
+.raison p {
+  color: black;
+}
+
+.Contenus {
+  width: 80%;
+}
+
+/* Partie pour les différent page d'affichage des fiches */
+
+.infofiche {
+  border-radius: 10px;
+    padding: 10px 0 10px 0;
+
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.topWhiteSpace{position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  padding-top: 10px;
+  background-color: white;
+}
+
+
+.sizeOf50px {
+  height: 50px;
+  width: 50px;
+}
+
+.marginRigh10px {
+  margin-right: 10px;
+}
+
+/** Scool button **/
+
+
+#myBtn {
+  display: block; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgba(2, 48, 89); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: visibility 0s, opacity 0.5s ;
+    -moz-transition: visibility 0s, opacity 0.5s ;
+    -o-transition: visibility 0s, opacity 0.5s ;
+    -ms-transition: visibility 0s, opacity 0.5s ;
+  transition: visibility 0s, opacity 0.5s ;
+  transition-timing-function: ease; 
+}
+
+#myBtn.active{
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/** Selection du métier **/
+
+ /* The container must be positioned relative: */
+ .custom-select {
+  
+  height: fit-content;
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  font-size: 20px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: rgb(0, 0, 0) transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent rgb(0, 0, 0) transparent;
+  top: 25%;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: rgba(0, 0, 0, 1);
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+} 
+.floatRight {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+.floatLeft {
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+}
+
+.tier{
+  display: flex;
+  flex-direction: row;
+align-items: center;
+justify-content: center;
+}

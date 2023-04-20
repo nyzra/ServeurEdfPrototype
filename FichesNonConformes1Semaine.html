@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-up.css' rel='stylesheet'>
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <nav>
+
+        <div class="edfLogo "></div>
+    
+        <div class="navigation">
+            <p><a href="index.html" class="sendReseachArgument">Acceuil</a></p>
+            <div class="dropdown">
+                <p class="dropdown-button">Acceder aux
+                    fiches</p>
+                <div class="dropdown-content">
+                    <a href="fichesConformes.html" class="sendReseachArgument">Fiches conformes</a>
+                    <a href="fichesNonConformes.html" class="sendReseachArgument">Fiches non conformes</a>
+                    <a href="FichesNonConformes1Semaine.html" class="sendReseachArgument">Fiches non conformes sous 7 jours</a>
+                    <a href="fichesNonConformes2Semaines.html" class="sendReseachArgument">Fiches non conformes sous 14 jours</a>
+                </div>
+            </div>
+    
+            <p><a href="fichesMisesAJours.html" class="sendReseachArgument">Fiches mises à jour</a></p>
+            <p><a href="dragAndDrop.html">Ajouter un
+                    exel</a></p>
+    
+        </div>
+    </nav>
+
+    <div class="Contenus">
+        <div class="choice">
+            <p>Vue pour le métier :</p>
+            <div class="custom-select metier">
+                <select   id="option">
+                    <option value="dog">métier 1</option>
+                    <option value="cat">métier 2</option>
+                    <option value="hamster">métier 3</option>
+                    <option value="parrot">métier 4 qui est bcp plus long</option>
+                    <option value="spider">métier 5</option>
+                    <option value="goldfish">métier 6</option>
+                </select>
+            </div>
+        </div>
+        <div class="topWhiteSpace">
+            <div class="infofiche OrangeBackground">
+                <p>Fiches conformes dans 7 jours
+                    
+                </p>
+                <button class="sendMailButton floatRight">
+                    <p>Envoyer un mail</p>
+                </button>
+            </div>
+        </div>
+        <div class="containerFiches">
+
+        </div>
+       
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up"></i></button> 
+    <script src="scripts/jquery-3.6.4.js" type="text/javascript"></script>
+    <script src="scripts/affichageFicheNonConformeSous7jours.js"></script>
+    <script src="scripts/customSelect.js"></script>
+    <script src="scripts/sendArgument.js"></script>    <script src="scripts/scrool.js"></script>
+</body>
+
+</html>
