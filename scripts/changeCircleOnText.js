@@ -1,5 +1,5 @@
 import {test} from "./test.js"
-
+console.log(test)
 
 let circles =["Tick","Green","Red","Orange","DarkOrange"]
 let startName = ".linkTo"
