@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto&display=swap');
+html{
+    background-color: #73b4f1;
+    font-family: "Roboto";
+}
+body{
+    color: #0A68C2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+#drop_zone{
+    border:  4px dashed white;
+    width: 500px;
+    height: 400px;
+}
+#drop_zone>:first-child{
+    margin-top: 100px;
+}
+
+#drop_zone input[type="submit"]{
+    margin-top: 50px;
+    background: white;
+	color: inherit;
+	border: none;
+    border-radius: 5px;
+	padding: 10px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+#drop_zone input[type="submit"]:hover{
+    background-color: #0A68C2;
+    color: white;
+}
+h1{
+    font-size: 50px;
+}
