@@ -15,7 +15,7 @@ $sql_create = 'CREATE TABLE `edf`.`info_fiche_2`
 `Niveau` VARCHAR(255) NULL DEFAULT NULL , `NumLocal` VARCHAR(255) NULL DEFAULT NULL , `NumDemande` VARCHAR(255) , 
 `NomColis` VARCHAR(255) NULL DEFAULT NULL , `DateDebut` VARCHAR(255) NULL DEFAULT NULL , `DateFin` VARCHAR(255) NULL DEFAULT NULL ,
 `DCC` VARCHAR(255) NULL DEFAULT NULL , `Materiel` VARCHAR(255) NULL DEFAULT NULL , `Conformite` VARCHAR(255) NULL DEFAULT NULL ,
-`Motif` VARCHAR(255) NULL DEFAULT NULL , `Précision` VARCHAR(255) NULL DEFAULT NULL , `Metier` VARCHAR(255) NULL DEFAULT NULL,
+`Motif` VARCHAR(255) NULL DEFAULT NULL , `Precision` VARCHAR(255) NULL DEFAULT NULL , `Metier` VARCHAR(255) NULL DEFAULT NULL,
 `Contact` TEXT(6000) NULL DEFAULT NULL ) ENGINE = InnoDB;'; // on crée une nouvelle table pour la semaine 3
 $db->prepare($sql_create);
 try {
@@ -85,7 +85,7 @@ foreach ($sheetData as $t) {
     }
 
     $sql_insert = "INSERT INTO `info_fiche_2`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`, `DateDebut`,
-  `DateFin`, `DCC`, `Materiel`, `Conformite`, `Motif`, `Précision`, `Metier`, `Contact`) 
+  `DateFin`, `DCC`, `Materiel`, `Conformite`, `Motif`, `Precision`, `Metier`, `Contact`) 
   VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' . $t[8] . '"' . "," . $t[9] . "," . '"' . $t[10] . '"' . "," . '"' . $t[11] . '"' . "," . '"' . $t[12] . '"' . "," . '"' . $t[13] . '"' . "," . '"' . $t[14] . '"' . "," . "'" . $pro . "'" . "," . '"' . $contact . '"' . ")";
     $db->prepare($sql_insert);
     try {
@@ -96,7 +96,7 @@ foreach ($sheetData as $t) {
   }
   $i++;
 }
-$sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, Précision, Metier, Contact FROM info_fiche_2";
+$sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_2";
 $result = $db->query($sql);
 $emparray = array();
 $data=$result->fetchAll(PDO::FETCH_ASSOC);
@@ -122,5 +122,7 @@ $data=preg_replace("/\]\"/","]",$data);
 $myfile = fopen("Data/Data.json", "w");
 fwrite($myfile, $data);
 fclose($myfile);
+header('Location: index.html');
+exit;
 
 ?>
