@@ -1,11 +1,17 @@
 let data = []
+let old = []
 
 async function  loadData(){
     const response =  await fetch('../Data/data.json')
     var json =  await response.json()
     data=json["Fiches"]
+    const response2 =  await fetch('../Data/old.json')
+    var json2 =  await response2.json()
+    old=json2["Fiches"]
 }
-
+function getFiches(){
+    return data
+}
 function CreateFicheConforme(infosFiches) {
     return `<div class="fiche"> \
 <div class="nomColis">\
@@ -102,6 +108,18 @@ function createFicheNonConforme(infosFiches) {
 </div>`
 }
 
+function getFicheMisesAJour(){
+    let fichesMisesAJours = []
+    for( var fiche in data){
+        for( var oldFiche in old){
+            if(fiche["NumDemande"]=== oldFiche["NumDemande"] && fiche["Conformite"]==="Oui" && oldFiche["Conformite"] ==="non" ){
+                fichesMisesAJours.append(fiche)
+            }
+        }
+    }
+    return fichesMisesAJours
+}
+
 function getFichesConformes() {
     return data.filter(fiche => fiche["Conformite"] === "Oui")
         ;
@@ -143,4 +161,4 @@ function getfiches2semaines() {
 }
 
 
-export { getfiches2semaines, getfiches1Semaine, getFichesConformes,getFichesNonConformes ,createFicheNonConforme ,CreateFicheConforme ,loadData}
+export { getFiches,getfiches2semaines, getfiches1Semaine, getFichesConformes,getFichesNonConformes ,createFicheNonConforme ,CreateFicheConforme ,loadData ,getFicheMisesAJour}
