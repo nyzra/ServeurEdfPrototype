@@ -96,30 +96,54 @@ foreach ($sheetData as $t) {
   }
   $i++;
 }
+
+function Export_csv($result){
+  $data=$result->fetchAll(PDO::FETCH_ASSOC);
+  $data=json_encode($data);
+  $data=preg_replace("/\[\{/","var data = [\n{",$data);
+  $data=preg_replace("/\}/",",\n}",$data);
+  $data=preg_replace("/,\"/",",\n\t\"",$data);
+  $data=preg_replace("/\},/","},\n",$data);
+  $data=preg_replace("/\{/","{\n\t",$data);
+  $data=preg_replace("/\\\\\//","/",$data);
+  $data=preg_replace("/\\\\u00e0/","à",$data);
+  $data=preg_replace("/\\\\u00e2/","â",$data);
+  $data=preg_replace("/\\\\u00e4/","ä",$data);
+  $data=preg_replace("/\\\\u00e7/","ç",$data);
+  $data=preg_replace("/\\\\u00e8/","è",$data);
+  $data=preg_replace("/\\\\u00e9/","é",$data);
+  $data=preg_replace("/\\\\u00ea/","ê",$data);
+  $data=preg_replace("/\\\\u00eb/","ë",$data);
+  $data=preg_replace("/\\\\u00ee/","î",$data);
+  $data=preg_replace("/\\\\u00ef/","ï",$data);
+  $data=preg_replace("/\\\\u00f4/","ô",$data);
+  $data=preg_replace("/\\\\u00f6/","ö",$data);
+  $data=preg_replace("/\\\\u00f9/","ù",$data);
+  $data=preg_replace("/\\\\u00fb/","û",$data);
+  $data=preg_replace("/\\\\u00fc/","ü",$data); 
+  $data=preg_replace("/\\\\u00b2/","²",$data);
+  $data=preg_replace("/\\\\u00b0/","°",$data);
+  $data=preg_replace("/\\\\u2019/","'",$data);
+  $data=preg_replace("/\\\\u00c9/","É",$data);
+  $data=preg_replace("/\\\\\"/","\"",$data);
+  $data=preg_replace("/\"\[/","[",$data);
+  $data=preg_replace("/\]\"/","]",$data);
+  return $data;
+}
+
 $sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_2";
 $result = $db->query($sql);
-$emparray = array();
-$data=$result->fetchAll(PDO::FETCH_ASSOC);
-$data=json_encode($data);
-$data=preg_replace("/\\\\u00e0/","à",$data);
-$data=preg_replace("/\\\\u00e2/","â",$data);
-$data=preg_replace("/\\\\u00e4/","ä",$data);
-$data=preg_replace("/\\\\u00e7/","ç",$data);
-$data=preg_replace("/\\\\u00e8/","è",$data);
-$data=preg_replace("/\\\\u00e9/","é",$data);
-$data=preg_replace("/\\\\u00ea/","ê",$data);
-$data=preg_replace("/\\\\u00eb/","ë",$data);
-$data=preg_replace("/\\\\u00ee/","î",$data);
-$data=preg_replace("/\\\\u00ef/","ï",$data);
-$data=preg_replace("/\\\\u00f4/","ô",$data);
-$data=preg_replace("/\\\\u00f6/","ö",$data);
-$data=preg_replace("/\\\\u00f9/","ù",$data);
-$data=preg_replace("/\\\\u00fb/","û",$data);
-$data=preg_replace("/\\\\u00fc/","ü",$data);
-$data=preg_replace("/\\\\\"/","\"",$data);
-$data=preg_replace("/\"\[/","[",$data);
-$data=preg_replace("/\]\"/","]",$data);
-$myfile = fopen("Data/Data.json", "w");
+$data=Export_csv($result);
+//$myfile = fopen("Data/Data2.json", "w");
+$myfile = fopen("Data/Data2.js", "w");
+fwrite($myfile, $data);
+fclose($myfile);
+
+$sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_1";
+$result = $db->query($sql);
+$data=Export_csv($result);
+//$myfile = fopen("Data/Data1.json", "w");
+$myfile = fopen("Data/Data1.js", "w");
 fwrite($myfile, $data);
 fclose($myfile);
 header('Location: index.html');
