@@ -1,5 +1,5 @@
-import { getFichesConformes,getFichesNonConformes, getfiches1Semaine,getfiches2semaines} from "./getFiches"
-
+import { getFichesConformes,getFichesNonConformes, getfiches1Semaine,getfiches2semaines,loadData} from "./getFiches"
+loadData()
 let filter = window.filter
 
 function showFichesFiltered() {

@@ -1,4 +1,4 @@
-var data = `{
+{
     "Fiches": [
         {
             "Tranche": "Extérieur BK",
@@ -7040,4 +7040,4 @@ var data = `{
             "Contact": ""
         }
     ]
-}`
+}
