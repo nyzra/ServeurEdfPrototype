@@ -1,0 +1,17 @@
+
+
+.sendMailButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 0 10px 0 10px;
+    background: rgba(112, 114, 110, 1);
+    opacity: 1;
+    box-shadow: 0 0 5px #000000;
+  }
+  
+  .sendMailButton:hover {
+    box-shadow: 0 0 20px #000000;
+  }
+  
