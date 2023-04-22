@@ -10,16 +10,17 @@ $sql_drop = "DROP TABLE IF EXISTS info_fiche_1 ;"; // on supprime la semaine 1
 $db->prepare($sql_drop);
 $sql_rename = "ALTER TABLE info_fiche_2 RENAME info_fiche_1 ;"; // on la remplace par la semaine 2
 $db->prepare($sql_rename);
-$sql_create = 'CREATE TABLE `edf`.`info_fiche_2` 
+$sql_create = 'CREATE TABLE If NOT EXISTS `edf`.`info_fiche_2` 
 ( `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT, `Tranche` VARCHAR(255) NULL DEFAULT NULL , `Localisation` VARCHAR(255) NULL DEFAULT NULL , `Batiment` VARCHAR(255) NULL DEFAULT NULL ,
 `Niveau` VARCHAR(255) NULL DEFAULT NULL , `NumLocal` VARCHAR(255) NULL DEFAULT NULL , `NumDemande` VARCHAR(255) , 
 `NomColis` VARCHAR(255) NULL DEFAULT NULL , `DateDebut` VARCHAR(255) NULL DEFAULT NULL , `DateFin` VARCHAR(255) NULL DEFAULT NULL ,
 `DCC` VARCHAR(255) NULL DEFAULT NULL , `Materiel` VARCHAR(255) NULL DEFAULT NULL , `Conformite` VARCHAR(255) NULL DEFAULT NULL ,
 `Motif` VARCHAR(255) NULL DEFAULT NULL , `Precision` VARCHAR(255) NULL DEFAULT NULL , `Metier` VARCHAR(255) NULL DEFAULT NULL,
-`Contact` TEXT(6000) NULL DEFAULT NULL ) ENGINE = InnoDB;'; // on crée une nouvelle table pour la semaine 3
+`Contact` TEXT(6000) NULL DEFAULT NULL, `MailEnvoye` BOOLEAN DEFAULT false ) ENGINE = InnoDB;'; // on crée une nouvelle table pour la semaine 3
 $db->prepare($sql_create);
 try {
   $db->exec($sql_drop);
+  $db->exec($sql_create);
   $db->exec($sql_rename);
   $db->exec($sql_create);
 } catch (Exception $e) {
