@@ -62,6 +62,7 @@ class Filter{
     
     FilterByMetier(fiches){
         if(this._metierChoice ==="" ) return null
+        if(this._metierChoice ==="Tous" ) return fiches
         return fiches.filter(fiche => {
             return fiche["Metier"][0]=== this._metierChoice})
     }

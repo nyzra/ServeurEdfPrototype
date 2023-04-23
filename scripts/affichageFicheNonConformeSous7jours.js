@@ -1,5 +1,5 @@
-import { getfiches1Semaine, CreateFicheConforme } from "./getFiches"
-
+import { getfiches1Semaine, CreateFicheConforme ,loadData } from "./getFiches"
+await loadData()
 let filter = window.filter
 
 let fiches = getfiches1Semaine()
