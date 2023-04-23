@@ -22,7 +22,7 @@
       required multiple style="display:none" />
     
   </form>
-
+  <div class="hide lds-ring "><div class="hide"></div><div class="hide"></div><div class="hide"></div><div class="hide"></div></div>
   <script>
     var drop_zone = document.getElementById('drop_zone');
     var sub_butt = document.getElementById('sub_butt');
@@ -40,16 +40,15 @@
     });
 
     sub_butt.addEventListener('click', function (e) {
+      console.log(document.getElementById("file").files.length);
+      if(document.getElementById("file").files.length != 0){
       elems.forEach(elem => {
-        elem.style.display = 'none';
+        elem.classList.add('hide');
       })
       hidding.forEach(x => {
-        if (x.style.visibility === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
+        x.classList.remove('hide');
       })
+    }
     })
   </script>
  <script src="scripts/jquery-3.6.4.js" type="text/javascript"></script>
