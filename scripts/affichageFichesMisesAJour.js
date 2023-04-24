@@ -1,10 +1,11 @@
-import { getFichesConformes, CreateFicheConforme ,loadData } from "./getFiches"
+import { getFicheMisesAJour, CreateFicheConforme ,loadData } from "./getFiches"
 await loadData()
 let filter = window.filter
 
-filter.notFilterFiches = getFichesConformes()
+filter.notFilterFiches = getFicheMisesAJour()
 
 function showFichesFiltered() {
+    console.log("on affiche")
     $(".containerFiches").empty()
     let fiches = filter.filteredFiches
     let fichesHTML = fiches.map(fiche => CreateFicheConforme(fiche))
@@ -15,4 +16,4 @@ function showFichesFiltered() {
 
 filter.handler= showFichesFiltered
 
-getFichesConformes()
+showFichesFiltered() 

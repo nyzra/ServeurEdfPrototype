@@ -15,3 +15,4 @@ function showFichesFiltered() {
 }
 
 filter.handler= showFichesFiltered
+showFichesFiltered()
