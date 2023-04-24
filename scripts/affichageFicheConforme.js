@@ -2,8 +2,7 @@ import { getFichesConformes, CreateFicheConforme ,loadData } from "./getFiches"
 await loadData()
 let filter = window.filter
 
-let fiches = getFichesConformes()
-filter.notFilterFiches = fiches
+filter.notFilterFiches = getFichesConformes()
 
 function showFichesFiltered() {
     $(".containerFiches").empty()
@@ -16,3 +15,4 @@ function showFichesFiltered() {
 
 filter.handler= showFichesFiltered
 
+getFichesConformes()
