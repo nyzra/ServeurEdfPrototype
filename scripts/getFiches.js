@@ -9,6 +9,7 @@ async function  loadData(){
     var json2 =  await response2.json()
     old=json2["Fiches"]
 }
+
 function getFiches(){
     return data
 }
@@ -110,13 +111,13 @@ function createFicheNonConforme(infosFiches) {
 
 function getFicheMisesAJour(){
     let fichesMisesAJours = []
-    for( var fiche in data){
-        for( var oldFiche in old){
-            if(fiche["NumDemande"]=== oldFiche["NumDemande"] && fiche["Conformite"]==="Oui" && oldFiche["Conformite"] ==="non" ){
-                fichesMisesAJours.append(fiche)
+    data.forEach(fiche => {
+        old.forEach(oldFiche =>{
+            if(fiche["NumDemande"]=== oldFiche["NumDemande"] && fiche["Conformite"]==="Oui" && oldFiche["Conformite"] ==="Non" ){
+                fichesMisesAJours.push(fiche)
             }
-        }
-    }
+        })
+    })
     return fichesMisesAJours
 }
 
@@ -138,6 +139,7 @@ function getfiches1Semaine() {
 function ficheNonConformeDansXJours(date, NbJours) {
     var DateToRow = date.split("/")
     const today = new Date()
+    console.log(DateToRow)
     DateToRow[2] = DateToRow[2].lenght == 2 ? DateToRow[2] : 20 + DateToRow[2]
     var date = new Date(DateToRow[1] + "/" + DateToRow[0] + "/" + DateToRow[2])
     const diffTime = Math.abs(today - date);
