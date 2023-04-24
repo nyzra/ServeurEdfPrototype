@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <title>Glisser-déposer un fichier Excel</title>
   <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/main.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
 </head>
 
 <body>
-
+  <nav data-include="nav"></nav>
  
   <form method="post" accept="xlsx" action="upload.php" enctype='multipart/form-data'>
     <div id="drop_zone">
@@ -50,7 +51,9 @@
     }
     })
   </script>
+ <script src="scripts/jquery-3.6.4.js" type="text/javascript"></script>
 
+    <script src="scripts/includeElements.js"></script>
 </body>
 
 </html>
