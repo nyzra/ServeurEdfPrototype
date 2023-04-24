@@ -101,7 +101,7 @@ foreach ($sheetData as $t) {
 function Export_csv($result){
   $data=$result->fetchAll(PDO::FETCH_ASSOC);
   $data=json_encode($data);
-  $data=preg_replace("/\[\{/","var data = [\n{",$data);
+  $data=preg_replace("/\[\{/","[\n{",$data);
   $data=preg_replace("/\}/",",\n}",$data);
   $data=preg_replace("/,\"/",",\n\t\"",$data);
   $data=preg_replace("/\},/","},\n",$data);
@@ -135,16 +135,16 @@ function Export_csv($result){
 $sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_2";
 $result = $db->query($sql);
 $data=Export_csv($result);
-//$myfile = fopen("Data/Data2.json", "w");
-$myfile = fopen("Data/Data2.js", "w");
+$myfile = fopen("Data/Data2.json", "w");
+//$myfile = fopen("Data/Data2.js", "w");
 fwrite($myfile, $data);
 fclose($myfile);
 
 $sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_1";
 $result = $db->query($sql);
 $data=Export_csv($result);
-//$myfile = fopen("Data/Data1.json", "w");
-$myfile = fopen("Data/Data1.js", "w");
+$myfile = fopen("Data/Data1.json", "w");
+//$myfile = fopen("Data/Data1.js", "w");
 fwrite($myfile, $data);
 fclose($myfile);
 header('Location: index.html');
