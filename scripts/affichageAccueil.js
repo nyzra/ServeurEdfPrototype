@@ -1,7 +1,13 @@
-import { getFichesConformes,getFichesNonConformes, getfiches1Semaine,getfiches2semaines} from "./getFiches"
-
+import { getFichesConformes,getFichesNonConformes, getfiches1Semaine,getfiches2semaines,loadData ,getFicheMisesAJour ,getFiches} from "./getFiches"
+import { printGraph } from "./graph.js"
+await loadData()
 let filter = window.filter
-
+let fiches = getFiches()
+let fichesNonConformes=getFichesNonConformes()
+let fichesConformes =getFichesConformes()
+let fichesNonConformes1semaine = getfiches1Semaine()
+let fichesNonConformes2semaine = getfiches2semaines()
+let fichesMisesAJours = getFicheMisesAJour()
 function showFichesFiltered() {
     $(".circle.GreenBackground").empty()
     $(".circle.RedBackground").empty()
@@ -9,24 +15,26 @@ function showFichesFiltered() {
     $(".circle.DarkOrangeBackground").empty()
 
     
-    filter.notFilterFiches =getFichesConformes()
+    filter.notFilterFiches =fichesConformes
     $(".circle.GreenBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
     
-    filter.notFilterFiches = getFichesNonConformes()
+    filter.notFilterFiches = fichesNonConformes
     $(".circle.RedBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
 
-    filter.notFilterFiches = getfiches1Semaine()
+    filter.notFilterFiches = fichesNonConformes1semaine
     $(".circle.OrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
 
-    filter.notFilterFiches = getfiches2semaines()
+    filter.notFilterFiches = fichesNonConformes2semaine
     $(".circle.DarkOrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
+    filter.notFilterFiches = fichesMisesAJours
 
+    filter.notFilterFiches = fiches
+    printGraph(filter.filteredFiches)
 }
-
 
 filter.handler= showFichesFiltered
 
