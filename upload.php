@@ -89,13 +89,13 @@ foreach ($reader->getSheetIterator() as $sheet) {
     } else {
       $pro = '["NULL"]';
     }
-    $dateD=(intval($t[8],10)- 25569) * 86400;
-    $dateF=(intval($t[9],10)- 25569) * 86400;
-    $resultD=getdate($dateD);
-    $resultF=getdate($dateF);
+    $dateD=$t[8];
+    $dateF=$t[9];
+    $resultD=$dateD->format('d/m/Y');
+    $resultF=$dateF->format('d/m/Y');
     $sql_insert = "INSERT INTO `info_fiche_2`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`, `DateDebut`,
   `DateFin`, `DCC`, `Materiel`, `Conformite`, `Motif`, `Precision`, `Metier`, `Contact`) 
-  VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' . $resultD['mday']."/".$resultD['mon']."/".$resultD['year'] . '"' . "," . '"' . $resultF['mday']."/".$resultF['mon']."/".$resultF['year'] . '"' . "," . '"' . $t[10] . '"' . "," . '"' . $t[11] . '"' . "," . '"' . $t[12] . '"' . "," . '"' . $t[13] . '"' . "," . '"' . $t[14] . '"' . "," . "'" . $pro . "'" . "," . '"' . $contact . '"' . ")";
+  VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' . $resultD . '"' . "," . '"' . $resultF . '"' . "," . '"' . $t[10] . '"' . "," . '"' . $t[11] . '"' . "," . '"' . $t[12] . '"' . "," . '"' . $t[13] . '"' . "," . '"' . $t[14] . '"' . "," . "'" . $pro . "'" . "," . '"' . $contact . '"' . ")";
     $db->prepare($sql_insert);
     try {
       $db->exec($sql_insert);
