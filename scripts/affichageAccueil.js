@@ -5,8 +5,8 @@ let filter = window.filter
 let fiches = getFiches()
 let fichesNonConformes=getFichesNonConformes()
 let fichesConformes =getFichesConformes()
-//let fichesNonConformes1semaine = getfiches1Semaine()
-//let fichesNonConformes2semaine = getfiches2semaines()
+let fichesNonConformes1semaine = getfiches1Semaine()
+let fichesNonConformes2semaine = getfiches2semaines()
 let fichesMisesAJours = getFicheMisesAJour()
 function showFichesFiltered() {
     $(".circle.GreenBackground").empty()
@@ -24,12 +24,12 @@ function showFichesFiltered() {
     $(".circle.RedBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
 
-    //filter.notFilterFiches = fichesNonConformes1semaine
-    //$(".circle.OrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
+    filter.notFilterFiches = fichesNonConformes1semaine
+    $(".circle.OrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
 
-    //filter.notFilterFiches = fichesNonConformes2semaine
-    //$(".circle.DarkOrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
+    filter.notFilterFiches = fichesNonConformes2semaine
+    $(".circle.DarkOrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
 
     filter.notFilterFiches = fichesMisesAJours
     
@@ -37,9 +37,8 @@ function showFichesFiltered() {
     $(".NumberUpdated").append(" fiches mises a jours")
 
     filter.notFilterFiches = fiches
-    //printGraph(filter.filteredFiches)
+    printGraph(filter.filteredFiches)
 }
 
 filter.handler= showFichesFiltered
-
 

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/main.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
 </head>
 
 <body>
