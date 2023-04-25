@@ -4,10 +4,11 @@ let old = []
 async function  loadData(){
     const response =  await fetch('../Data/data.json')
     var json =  await response.json()
-    data=json["Fiches"]
-    const response2 =  await fetch('../Data/old.json')
+    data=json
+    const response2 =  await fetch('../Data/oldData.json')
     var json2 =  await response2.json()
-    old=json2["Fiches"]
+    old=json2
+    console.log(data,old)
 }
 
 function getFiches(){
@@ -136,24 +137,27 @@ function getfiches1Semaine() {
     return data.filter(fiche => fiche["Conformite"] === "Oui" && dateNonconformeDans1semaine(fiche["DateFin"]))
         ;
 }
-function ficheNonConformeDansXJours(date, NbJours) {
+function ficheNonConformeDansXSemaine(date, NbSemaine) {
+    let nbJours = NbSemaine*7
     var DateToRow = date.split("/")
-    const today = new Date()
-    console.log(DateToRow)
-    DateToRow[2] = DateToRow[2].lenght == 2 ? DateToRow[2] : 20 + DateToRow[2]
     var date = new Date(DateToRow[1] + "/" + DateToRow[0] + "/" + DateToRow[2])
-    const diffTime = Math.abs(today - date);
+    const today = new Date()
+
+    const diffTime = (date-today );
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return NbJours - today.getDay() < diffDays && diffDays <= NbJours + 7 - today.getDay()
+    console.log(nbJours-6 - today.getDay())
+    console.log(nbJours - today.getDay() )
+
+    return nbJours-6 - today.getDay() <= diffDays && diffDays <= nbJours - today.getDay() 
 }
 
 
 function dateNonconformeDans1semaine(date) {
-    return ficheNonConformeDansXJours(date, 7)
+    return ficheNonConformeDansXSemaine(date, 1)
 }
 
 function dateNonConformeDans2Semaine(date) {
-    return ficheNonConformeDansXJours(date, 14)
+    return ficheNonConformeDansXSemaine(date, 2)
 }
 
 
