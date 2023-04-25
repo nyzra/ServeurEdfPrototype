@@ -1,5 +1,5 @@
 <?php
-
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 include("config\database.php");
 header('Content-Type: text/html; charset=utf-8');
 
@@ -45,25 +45,33 @@ class MyReadFilter implements \PhpOffice\PhpSpreadsheet\Reader\IReadFilter
 
 
 
-$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+/*$reader = new \PhpOffice\ 
 $reader->setReadFilter(new MyReadFilter());
 $reader->setReadDataOnly(true);
 $reader->setLoadSheetsOnly(["Feuil1"]);
-$spreadsheet = $reader->load($_FILES['file']['tmp_name']);
-
-$d = $spreadsheet->getSheet(0)->toArray();
+$spreadsheet = $reader->load($_FILES['file']['tmp_name']);*/
 
 
-$sheetData = $spreadsheet->getActiveSheet()->toArray();
+$path = 'data/movies-100.xlsx';
+# open the file
+$reader = ReaderEntityFactory::createXLSXReader();
+echo $_FILES['file']['tmp_name'];
+$reader->open($_FILES['file']['tmp_name']);
+# read each cell of each row of each sheet
+
 
 $i = 1;
-unset($sheetData[0]);
+
 
 $Metiers = "\bMMCR\b|\bA2P\b|\bSAE\b|\bEC\b|\bSLT\b|\bIPE\b|\bLEVAGE\b|\bLNU\b|\bPS\b|\bSPR\b|\bESSAI\b|\bConduite\b|\bAMT\b|\bEDF KD\b|\bGC\b|\bMEEI\b|\bEDF MECA\b|\bEDF\b|\bAUTO\b|\bCA\b|\bKD\b|\bARDATEM\b";
-
-foreach ($sheetData as $t) {
-  // on affiche toute les données de la table (test pour l'instant, objectif : on insert toutes les données dans la table);
+foreach ($reader->getSheetIterator() as $sheet) {
+  foreach ($sheet->getRowIterator() as $row) {
+    $t=[];
+       // on affiche toute les données de la table (test pour l'instant, objectif : on insert toutes les données dans la table);
   // on commence a 10 pour ne pas avoir les lignes vides du début du fichier
+  foreach ($row->getCells() as $cell) {
+    array_push($t,  $cell->getValue() );
+}
   if ($i > 10) {
     if (preg_match("/CONTACT :(.*$)/", $t[15], $matches)) {
       if (preg_match_all("/ {$Metiers} /", $matches[1], $out, PREG_PATTERN_ORDER)) {
@@ -92,11 +100,14 @@ foreach ($sheetData as $t) {
     try {
       $db->exec($sql_insert);
     } catch (Exception $e) {
+      echo $e;
       // retour a la page drang and drop + popup/alerte qui dit d'enlever les double guillement dans le fichier et si possible indiquer ou
     }
   }
   $i++;
-}
+      }
+  }
+
 
 function Export_csv($result){
   $data=$result->fetchAll(PDO::FETCH_ASSOC);
@@ -148,7 +159,7 @@ $myfile = fopen("Data/oldData.json", "w");
 //$myfile = fopen("Data/Data1.js", "w");
 fwrite($myfile, $data);
 fclose($myfile);
-header('Location: index.html');
+header('location:index.html');
 exit;
 
 ?>
