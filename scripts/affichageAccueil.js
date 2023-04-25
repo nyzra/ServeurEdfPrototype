@@ -37,7 +37,7 @@ function showFichesFiltered() {
     $(".NumberUpdated").append(" fiches mises a jours")
 
     filter.notFilterFiches = fiches
-    //printGraph(filter.filteredFiches)
+    printGraph(filter.filteredFiches)
 }
 
 filter.handler= showFichesFiltered
