@@ -85,6 +85,7 @@ foreach ($reader->getSheetIterator() as $sheet) {
         $contact = preg_replace('/[\s]{2,}/', ' ', $contact);
         $contact = preg_replace('/^\s*/', '', $contact);
         $contact = preg_replace('/\s*$/', '', $contact);
+        $contact = preg_replace('/[0-9]/', '',$contact);
       }
     } else {
       $pro = '["NULL"]';
