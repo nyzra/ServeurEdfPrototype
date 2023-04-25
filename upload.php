@@ -92,7 +92,7 @@ foreach ($sheetData as $t) {
     try {
       $db->exec($sql_insert);
     } catch (Exception $e) {
-      echo $e ;
+      // retour a la page drang and drop + popup/alerte qui dit d'enlever les double guillement dans le fichier et si possible indiquer ou
     }
   }
   $i++;

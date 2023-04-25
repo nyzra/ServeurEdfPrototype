@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     min-width: 50%;
     margin-top: 20px;
-  
+    flex-wrap: wrap;
   }
   
   .displayChoice p{
