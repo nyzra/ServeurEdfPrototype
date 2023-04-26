@@ -81,11 +81,21 @@ foreach ($reader->getSheetIterator() as $sheet) {
         }
         $pro = substr($pro, 0, -2) . "]";
         $contact = preg_replace("/{$Metiers}|\./", "", $matches[1]);
-        $contact = preg_replace("/(?<![a-zA-ZÀ-ú\d\/-])|[^\w\/-]|[\/]{2,}|[\/-](?=[^\w\/-])/", ' ', $contact);
+
+        $contact = preg_match_all("/(([a-zA-Zà-ÿ]+)\s?([a-zA-Zà-ÿ\+)?\s?([a-zA-Zà-ÿ]+)?\s?([0-9]+)?\s?[-\/\\\]?){1,2}/u", $contact, $matches);
+        if($matches[2][0]=='EL'){
+          $contact = $matches[2][1].' '.$matches[3][1].' '.$matches[4][1];
+        }else{
+          $contact = $matches[2][0].' '.$matches[3][0].' '.$matches[4][0];
+        }
+        //$contact = preg_replace("/(?<![a-zA-ZÀ-ú\d\/-])|[^\w\/-]|[\/]{2,}|[\/-](?=[^\w\/-])/", ' ', $contact);
+        $contact = preg_replace('/\s(OU|ou)\s.*/', '', $contact);
         $contact = preg_replace('/[\s]{2,}/', ' ', $contact);
         $contact = preg_replace('/^\s*/', '', $contact);
         $contact = preg_replace('/\s*$/', '', $contact);
         $contact = preg_replace('/[0-9]/', '',$contact);
+        $contact = preg_replace('/\s$/','',$contact);
+        //echo $contact.'<br>';
       }
     } else {
       $pro = '["NULL"]';
@@ -160,7 +170,7 @@ $myfile = fopen("Data/oldData.json", "w");
 //$myfile = fopen("Data/Data1.js", "w");
 fwrite($myfile, $data);
 fclose($myfile);
-header('location:index.html');
+//header('location:index.html');
 exit;
 
 ?>
