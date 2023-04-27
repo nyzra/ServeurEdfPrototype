@@ -1,5 +1,5 @@
 function stackedBarChart(id, labels, datasets, title, yLabel, xLabel) {
-	chartID = document.getElementById(id);
+	let chartID = document.getElementById(id);
 	new Chart(chartID, {
 		type: 'bar',
 		data: {
@@ -25,7 +25,7 @@ function stackedBarChart(id, labels, datasets, title, yLabel, xLabel) {
 				},
 			},
 			responsive: true,
-			scales: {
+			scales: {	
 				x: {
 					stacked: true,
 					grid: { display: false },
@@ -49,7 +49,7 @@ function stackedBarChart(id, labels, datasets, title, yLabel, xLabel) {
 
 
 function lineChart(id, labels, dataset, dataLabel ,title, yLabel, xLabel){
-	chartID = document.getElementById(id);
+	let chartID = document.getElementById(id);
 	new Chart(chartID, {
 		type: 'line',
 		data: {
@@ -92,7 +92,7 @@ function lineChart(id, labels, dataset, dataLabel ,title, yLabel, xLabel){
 
 
 function doughnutChart(id, labels, dataset, title){
-	chartID = document.getElementById(id);
+	let chartID = document.getElementById(id);
 	new Chart(chartID, {
 		type: 'doughnut',
 		data: {
@@ -222,3 +222,5 @@ function stackedLinesChart(id, labels, datasets ,dataLabels ,title, yLabel, xLab
 // 		}
 // 	});
 // }
+
+export { stackedBarChart , lineChart , stackedLinesChart , doughnutChart}

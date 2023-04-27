@@ -1,18 +1,14 @@
+import { stackedBarChart , lineChart , doughnutChart} from "./ChartsLibrary"
+import { getAllWeks , loadData} from './getFiches'
+await loadData()
 var Metiers = ["A2P" ,"C2E" ,"Conduite" ,"Equipe Commune" ,"MMCR" ,"SAE" ,"SLT" ,"SPR"]
 var Semaines = ["S1" ,"S2" ,"S3" ,"S4" ,"S5" ,"S6" ,"S7" ,"S8"]
 
-var data1 = JSON.parse(data1)["Fiches"];
-var data2 = JSON.parse(data2)["Fiches"];
-var data3 = JSON.parse(data3)["Fiches"];
-var data4 = JSON.parse(data4)["Fiches"];
-var data5 = JSON.parse(data5)["Fiches"];
-var data6 = JSON.parse(data6)["Fiches"];
-var data7 = JSON.parse(data7)["Fiches"];
-var data8 = JSON.parse(data8)["Fiches"];
+var [data1 , data2 ,data3 , data4 , data5 , data6 , data7 ,data8] =await getAllWeks()
 
 var dataTotal = [data1 ,data2 ,data3 ,data4 ,data5 ,data6 ,data7 ,data8]
 
-
+console.log(dataTotal)
 // Fiches conformes - non conformes de la semaine (bars)
 var dictMetiers = {"A2P": {"Conforme": 0, "NonConforme": 0 ,"Total": 0},
 					"C2E": {"Conforme": 0, "NonConforme": 0 ,"Total": 0},
@@ -23,10 +19,10 @@ var dictMetiers = {"A2P": {"Conforme": 0, "NonConforme": 0 ,"Total": 0},
 					"SLT": {"Conforme": 0, "NonConforme": 0 ,"Total": 0},
 					"SPR": {"Conforme": 0, "NonConforme": 0 ,"Total": 0}};
 
-for (var i = 0; i < data8.length; i++) {
-	var m = data8[i]["Metier"]
+for (var i = 0; i < data1.length; i++) {
+	var m = data1[i]["Metier"]
 	if (Metiers.includes(m)) {
-		if (data8[i]["Conformite"] == "Non"){
+		if (data1[i]["Conformite"] == "Non"){
 			dictMetiers[m]["NonConforme"] += 1; 
 		} else {
 			dictMetiers[m]["Conforme"] += 1; 
@@ -70,11 +66,11 @@ var dictMetiersDCC = {"A2P": 0,
 					"SPR": 0};
 var DCCTotal = 0;
 
-for (var i = 0; i < data8.length; i++) {
-	var m = data8[i]["Metier"]
+for (var i = 0; i < data1.length; i++) {
+	var m = data1[i]["Metier"]
 	if (Metiers.includes(m)) {
-		if (data8[i]["Conformite"] == "Non"){
-			dictMetiersDCC[m] += Math.ceil(data8[i]["DCC"]); 
+		if (data1[i]["Conformite"] == "Non"){
+			dictMetiersDCC[m] += Math.ceil(data1[i]["DCC"]); 
 		}
 	}
 }
@@ -104,8 +100,8 @@ lineChart("chart4" ,Semaines ,listeDCC ,"DCC (Mj)" ,"Evolution de la DCC non con
 // DCC non controlée par zone
 var listeZones = {};
 
-for (var i = 0; i < data8.length; i++) {
-	var fiche = data8[i];
+for (var i = 0; i < data1.length; i++) {
+	var fiche = data1[i];
 	if (fiche["Conformite"] == "Non") {
 		if (! Object.keys(listeZones).includes(fiche["Tranche"])){
 			listeZones[fiche["Tranche"]] = 0;
@@ -117,12 +113,12 @@ for (var i = 0; i < data8.length; i++) {
 console.log(listeZones);
 doughnutChart("chart5", Object.keys(listeZones), Object.values(listeZones), "DCC non controlée par zone")
 
-
+ 
 // Raisons de non conformité
 var motifs = {}
 
-for (var i = 0; i < data8.length; i++) {
-	var fiche = data8[i];
+for (var i = 0; i < data1.length; i++) {
+	var fiche = data1[i];
 	if (fiche["Conformite"] == "Non") {
 		if (fiche["Motif"] != ""){
 			if (! Object.keys(motifs).includes(fiche["Motif"])){

@@ -1,18 +1,28 @@
+import { stackedBarChart , lineChart , stackedLinesChart , doughnutChart} from "./ChartsLibrary"
+import { getAllWeks ,loadData } from './getFiches'
+await loadData()
+var [data1 , data2 ,data3 , data4 , data5 , data6 , data7 ,data8] =await getAllWeks()
+
+
+var dataTotal = [data1 ,data2 ,data3 ,data4 ,data5 ,data6 ,data7 ,data8]
+
+
+
 var Metiers = ["A2P", "C2E", "Conduite", "Equipe Commune", "MMCR", "SAE", "SLT", "SPR"]
 var metier = "SLT"
 
 console.log("----")
 
 
-// Fiche de la semaine c / nc / DCC
+// Fiche de la semaine c / nc /  DCC
 var fichesSemaine = {
 	"Conformes": 0,
 	"Non-Conformes": 0,
 	"Critique": 0
 }
 
-for (var i = 0; i < data8.length; i++) {
-	var fiche = data8[i];
+for (var i = 0; i < data1.length; i++) {
+	var fiche = data1[i];
 	if (fiche["Metier"] == metier) {
 		if (fiche["Conformite"] == "Non") {
 			if (fiche["Motif"] == "Signature métier > 400 Mj/m²") {
@@ -36,7 +46,7 @@ doughnutChart("chart7", Object.keys(fichesSemaine), Object.values(fichesSemaine)
 // Evolution fiches non valides sur nombres de fiches
 var nbrFiches = []
 var nbrFichesNC = []
-
+console.log(dataTotal)
 for (var i = 0; i < dataTotal.length; i++) {
 	var data = dataTotal[i];
 	var Fe = 0;

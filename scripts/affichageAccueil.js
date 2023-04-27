@@ -1,8 +1,10 @@
 import { getFichesConformes,getFichesNonConformes, getfiches1Semaine,getfiches2semaines,loadData ,getFicheMisesAJour ,getFiches} from "./getFiches"
 import { printGraph } from "./graph.js"
 await loadData()
+
 let filter = window.filter
 let fiches = getFiches()
+
 let fichesNonConformes=getFichesNonConformes()
 let fichesConformes =getFichesConformes()
 let fichesNonConformes1semaine = getfiches1Semaine()
