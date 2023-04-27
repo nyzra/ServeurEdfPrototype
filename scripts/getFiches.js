@@ -8,7 +8,7 @@ async function  loadData(){
     const response2 =  await fetch('../Data/oldData.json')
     var json2 =  await response2.json()
     old=json2
-    console.log(data,old)
+
 }
 
 function getFiches(){
@@ -145,8 +145,7 @@ function ficheNonConformeDansXSemaine(date, NbSemaine) {
 
     const diffTime = (date-today );
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(nbJours-6 - today.getDay())
-    console.log(nbJours - today.getDay() )
+
 
     return nbJours-6 - today.getDay() <= diffDays && diffDays <= nbJours - today.getDay() 
 }

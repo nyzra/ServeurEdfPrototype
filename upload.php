@@ -52,10 +52,8 @@ $reader->setLoadSheetsOnly(["Feuil1"]);
 $spreadsheet = $reader->load($_FILES['file']['tmp_name']);*/
 
 
-$path = 'data/movies-100.xlsx';
 # open the file
 $reader = ReaderEntityFactory::createXLSXReader();
-echo $_FILES['file']['tmp_name'];
 $reader->open($_FILES['file']['tmp_name']);
 # read each cell of each row of each sheet
 
