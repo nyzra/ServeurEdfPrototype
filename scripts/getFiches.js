@@ -145,8 +145,6 @@ function ficheNonConformeDansXSemaine(date, NbSemaine) {
 
     const diffTime = (date-today );
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(nbJours-6 - today.getDay())
-    console.log(nbJours - today.getDay() )
 
     return nbJours-6 - today.getDay() <= diffDays && diffDays <= nbJours - today.getDay() 
 }
