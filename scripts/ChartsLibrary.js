@@ -116,7 +116,7 @@ function doughnutChart(id, labels, dataset, title){
 
 
 function stackedLinesChart(id, labels, datasets ,dataLabels ,title, yLabel, xLabel) {
-	chartID = document.getElementById(id);
+	let chartID = document.getElementById(id);
 	new Chart(chartID, {
 		type: 'line',
 		data: {

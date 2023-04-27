@@ -5,10 +5,8 @@ var [data1 , data2 ,data3 , data4 , data5 , data6 , data7 ,data8] =await getAllW
 
 
 var dataTotal = [data1 ,data2 ,data3 ,data4 ,data5 ,data6 ,data7 ,data8]
+var Semaines = ["S1" ,"S2" ,"S3" ,"S4" ,"S5" ,"S6" ,"S7" ,"S8"]
 
-
-
-var Metiers = ["A2P", "C2E", "Conduite", "Equipe Commune", "MMCR", "SAE", "SLT", "SPR"]
 var metier = "SLT"
 
 console.log("----")
