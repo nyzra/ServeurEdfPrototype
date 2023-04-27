@@ -1,18 +1,47 @@
-let data = []
-let old = []
+let S1 = []
+let S2 = []
+let S3 = []
+let S4 = []
+let S5 = []
+let S6 = []
+let S7 = []
+let S8 = []
+
 
 async function  loadData(){
-    const response =  await fetch('../Data/data.json')
+     S1=await loadJson('../Data/S1.json')
+
+     S2=await loadJson('../Data/S2.json')
+
+     S3=await loadJson('../Data/S3.json')
+
+     S4=await loadJson('../Data/S4.json')
+
+     S5=await loadJson('../Data/S5.json')
+
+     S6=await loadJson('../Data/S6.json')
+
+     S7=await loadJson('../Data/S7.json')
+
+     S8=await loadJson('../Data/S8.json')
+}
+
+
+async function loadJson(name){
+    const response =  await fetch(name)
     var json =  await response.json()
-    data=json
-    const response2 =  await fetch('../Data/oldData.json')
-    var json2 =  await response2.json()
-    old=json2
-    console.log(data,old)
+    
+    return json
 }
 
 function getFiches(){
-    return data
+    console.log(S1)
+    return S1
+}
+
+function getAllWeks(){
+    console.log([S1,S2,S3,S4,S6,S7,S8])
+    return[S1,S2,S3,S4,S5,S6,S7,S8]
 }
 function CreateFicheConforme(infosFiches) {
     return `<div class="fiche"> \
@@ -112,8 +141,8 @@ function createFicheNonConforme(infosFiches) {
 
 function getFicheMisesAJour(){
     let fichesMisesAJours = []
-    data.forEach(fiche => {
-        old.forEach(oldFiche =>{
+    S1.forEach(fiche => {
+        S2.forEach(oldFiche =>{
             if(fiche["NumDemande"]=== oldFiche["NumDemande"] && fiche["Conformite"]==="Oui" && oldFiche["Conformite"] ==="Non" ){
                 fichesMisesAJours.push(fiche)
             }
@@ -123,18 +152,18 @@ function getFicheMisesAJour(){
 }
 
 function getFichesConformes() {
-    return data.filter(fiche => fiche["Conformite"] === "Oui")
+    return S1.filter(fiche => fiche["Conformite"] === "Oui")
         ;
 }
 
 function getFichesNonConformes() {
-    return data.filter(fiche => fiche["Conformite"] === "Non")
+    return S1.filter(fiche => fiche["Conformite"] === "Non")
         ;
 }
 
 function getfiches1Semaine() {
 
-    return data.filter(fiche => fiche["Conformite"] === "Oui" && dateNonconformeDans1semaine(fiche["DateFin"]))
+    return S1.filter(fiche => fiche["Conformite"] === "Oui" && dateNonconformeDans1semaine(fiche["DateFin"]))
         ;
 }
 function ficheNonConformeDansXSemaine(date, NbSemaine) {
@@ -145,8 +174,7 @@ function ficheNonConformeDansXSemaine(date, NbSemaine) {
 
     const diffTime = (date-today );
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(nbJours-6 - today.getDay())
-    console.log(nbJours - today.getDay() )
+
 
     return nbJours-6 - today.getDay() <= diffDays && diffDays <= nbJours - today.getDay() 
 }
@@ -162,9 +190,9 @@ function dateNonConformeDans2Semaine(date) {
 
 
 function getfiches2semaines() {
-    return data.filter(fiche => fiche["Conformite"] === "Oui" && dateNonConformeDans2Semaine(fiche["DateFin"]))
+    return S1.filter(fiche => fiche["Conformite"] === "Oui" && dateNonConformeDans2Semaine(fiche["DateFin"]))
         ;
 }
 
 
-export { getFiches,getfiches2semaines, getfiches1Semaine, getFichesConformes,getFichesNonConformes ,createFicheNonConforme ,CreateFicheConforme ,loadData ,getFicheMisesAJour}
+export {getAllWeks, getFiches,getfiches2semaines, getfiches1Semaine, getFichesConformes,getFichesNonConformes ,createFicheNonConforme ,CreateFicheConforme ,loadData ,getFicheMisesAJour}
