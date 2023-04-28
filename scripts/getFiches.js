@@ -7,40 +7,107 @@ let S6 = []
 let S7 = []
 let S8 = []
 
+let S1gohst = []
+let S2gohst = []
+let S3gohst = []
+let S4gohst = []
+let S5gohst = []
+let S6gohst = []
+let S7gohst = []
+let S8gohst = []
 
-async function  loadData(){
-     S1=await loadJson('Data/S1.json')
 
-     S2=await loadJson('Data/S2.json')
 
-     S3=await loadJson('Data/S3.json')
+async function loadData() {
+    S1 = await loadJson('Data/S1.json')
+    S1gohst = S1.filter(fiche => {
+        return fiche["NomColis"] === "Ecart pirate"
+    })
 
-     S4=await loadJson('Data/S4.json')
+    S1 = S1.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
 
-     S5=await loadJson('Data/S5.json')
 
-     S6=await loadJson('Data/S6.json')
+    S2 = await loadJson('Data/S2.json')
+    S2gohst = S2.filter(fiche => {
+        return fiche["NomColis"] === "Ecart pirate"
+    })
+    S2 = S2.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
 
-     S7=await loadJson('Data/S7.json')
 
-     S8=await loadJson('Data/S8.json')
+    S3 = await loadJson('Data/S3.json')
+    S3gohst = S3.filter(fiche => {
+        return fiche["NomColis"] === "Ecart pirate"
+    })
+    S3 = S3.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+
+
+    S4 = await loadJson('Data/S4.json')
+    S4gohst = S4.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+    S4 = S4.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+ 
+
+    S5 = await loadJson('Data/S5.json')
+    S5gohst = S5.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+    S5 = S5.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+
+
+    S6 = await loadJson('Data/S6.json')
+    S6gohst =  S6.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+    S6 = S6.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+
+
+    S7 = await loadJson('Data/S7.json')
+    S7gohst =  S7.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+
+    S7 = S7.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+
+    S8 = await loadJson('Data/S8.json')
+    S8gohst =  S8.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+    S8 = S8.filter(fiche => {
+        return fiche["NomColis"] != "Ecart pirate"
+    })
+    
 }
 
 
-async function loadJson(name){
-    const response =  await fetch(name)
-    var json =  await response.json()
-    
+async function loadJson(name) {
+    const response = await fetch(name)
+    var json = await response.json()
+
     return json
 }
 
-function getFiches(){
+function getFiches() {
 
-    return S1
+    return S8
 }
 
-function getAllWeks(){
-    return[S1,S2,S3,S4,S5,S6,S7,S8]
+function getAllWeks() {
+    return [S8, S7, S6, S5, S4, S3, S2, S1]
 }
 function CreateFicheConforme(infosFiches) {
     return `<div class="fiche"> \
@@ -138,11 +205,11 @@ function createFicheNonConforme(infosFiches) {
 </div>`
 }
 
-function getFicheMisesAJour(){
+function getFicheMisesAJour() {
     let fichesMisesAJours = []
-    S1.forEach(fiche => {
-        S2.forEach(oldFiche =>{
-            if(fiche["NumDemande"]=== oldFiche["NumDemande"] && fiche["Conformite"]==="Oui" && oldFiche["Conformite"] ==="Non" ){
+    getFiches().forEach(fiche => {
+        S7.forEach(oldFiche => {
+            if (fiche["NumDemande"] === oldFiche["NumDemande"] && fiche["Conformite"] === "Oui" && oldFiche["Conformite"] === "Non") {
                 fichesMisesAJours.push(fiche)
             }
         })
@@ -151,31 +218,31 @@ function getFicheMisesAJour(){
 }
 
 function getFichesConformes() {
-    return S1.filter(fiche => fiche["Conformite"] === "Oui")
+    return getFiches().filter(fiche => fiche["Conformite"] === "Oui")
         ;
 }
 
 function getFichesNonConformes() {
-    return S1.filter(fiche => fiche["Conformite"] === "Non")
+    return getFiches().filter(fiche => fiche["Conformite"] === "Non")
         ;
 }
 
 function getfiches1Semaine() {
 
-    return S1.filter(fiche => fiche["Conformite"] === "Oui" && dateNonconformeDans1semaine(fiche["DateFin"]))
+    return getFiches().filter(fiche => fiche["Conformite"] === "Oui" && dateNonconformeDans1semaine(fiche["DateFin"]))
         ;
 }
 function ficheNonConformeDansXSemaine(date, NbSemaine) {
-    let nbJours = NbSemaine*7
+    let nbJours = NbSemaine * 7
     var DateToRow = date.split("/")
     var date = new Date(DateToRow[1] + "/" + DateToRow[0] + "/" + DateToRow[2])
     const today = new Date()
 
-    const diffTime = (date-today );
+    const diffTime = (date - today);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
 
-    return nbJours-6 - today.getDay() <= diffDays && diffDays <= nbJours - today.getDay() 
+    return nbJours - 6 - today.getDay() <= diffDays && diffDays <= nbJours - today.getDay()
 }
 
 
@@ -189,9 +256,9 @@ function dateNonConformeDans2Semaine(date) {
 
 
 function getfiches2semaines() {
-    return S1.filter(fiche => fiche["Conformite"] === "Oui" && dateNonConformeDans2Semaine(fiche["DateFin"]))
+    return getFiches().filter(fiche => fiche["Conformite"] === "Oui" && dateNonConformeDans2Semaine(fiche["DateFin"]))
         ;
 }
 
 
-export {getAllWeks, getFiches,getfiches2semaines, getfiches1Semaine, getFichesConformes,getFichesNonConformes ,createFicheNonConforme ,CreateFicheConforme ,loadData ,getFicheMisesAJour}
+export { getAllWeks, getFiches, getfiches2semaines, getfiches1Semaine, getFichesConformes, getFichesNonConformes, createFicheNonConforme, CreateFicheConforme, loadData, getFicheMisesAJour }
