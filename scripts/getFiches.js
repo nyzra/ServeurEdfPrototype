@@ -35,12 +35,11 @@ async function loadJson(name){
 }
 
 function getFiches(){
-    console.log(S1)
+
     return S1
 }
 
 function getAllWeks(){
-    console.log([S1,S2,S3,S4,S6,S7,S8])
     return[S1,S2,S3,S4,S5,S6,S7,S8]
 }
 function CreateFicheConforme(infosFiches) {
