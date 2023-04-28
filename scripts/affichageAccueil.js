@@ -12,7 +12,7 @@ let fichesNonConformes2semaine = getfiches2semaines()
 let fichesMisesAJours = getFicheMisesAJour()
 
 function showFichesFiltered() {
-    console.log("on affiche")
+
     $(".circle.GreenBackground").empty()
     $(".circle.RedBackground").empty()
     $(".circle.OrangeBackground").empty()
