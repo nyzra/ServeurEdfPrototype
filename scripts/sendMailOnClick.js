@@ -4095,16 +4095,48 @@ var data= [
     });
     return demandesParContact;
   }
+  function inverserNomPrenom(str) {
+    const nomPrenom = str.split(" ");
+    if(nomPrenom.length>1){
+      let nom = nomPrenom.find((np) => np === np.toUpperCase());
+      let prenom = nomPrenom.find((np) => np !== nom).toLowerCase();
+  
+      if (nom && prenom) {
+        return `${nom} ${prenom}`
+      } else {
+       return str
+      }
+    } else {
+      return str
+     }
+    
+  }
 function contactToMail(contact){
-  var noms = contact.split(' ');
-  var prenom = noms[1].toLowerCase();
-  var nom = noms[0].toLowerCase();
-
-  return `${nom}.${prenom}@edf.fr`;
+  noms=inverserNomPrenom(contact)
+  var noms = noms.split(' ');
+  if(noms.length>1){
+    var prenom = noms[1].toLowerCase();
+    var nom = noms[0].toLowerCase();
+  
+    return `${nom}.${prenom}@edf.fr`;
+  }else{
+    return "erreur d'abréviation"
+  }
+  
 }
+
 function SendMail() {
-  var Fichecontact = trouverDemandesParContact(data,"HERAULT David")
+  let fiches = window.filter.filteredFiches
+  var tabContact=[]
+  fiches.forEach(e => {
+    tabContact.push(e.Contact)
+  })
+  tabContact= Array.from(new Set(tabContact))
+  console.log(tabContact)
+  tabContact.forEach(c => {
+  var Fichecontact = trouverDemandesParContact(data,c)
   mail=contactToMail(Fichecontact[0].Contact)
+  console.log(mail)
   var information = "Bonjour,%0DSuite a une vérification des fiches métier nous avons pu voir que certaines des fiches dont vous etes le référent ne sont pas conforme.%0DVoici une liste exhaustive des fiches que vous devez remettre en règle dans les plus bref délai :%0D"
   Fichecontact.forEach(element => {
       information +='%09- Nom du colis :'+element.NomColis+'%0D'
@@ -4112,10 +4144,11 @@ function SendMail() {
       information +='%09%09- Datant de :'+element.DateDebut+'et expirant le :'+element.DateFin+'%0D'
       information +='%09%09- DCC :'+element.DCC+'%0D'
       information +='%09%09- situé dans le local :'+element.NumLocal+'%0D'
-  });
-  
-  window.location.href =
+        //window.location.href =
     "mailto:"+mail+"?subject=Fiches Non Conformes&body="+information;
+  });
+  })  
+
 }
 
 sendMailButton.click(function(){
