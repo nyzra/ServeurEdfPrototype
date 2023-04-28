@@ -72,7 +72,7 @@ function printGraph(data){
 		}
 	}
 	
-	console.log(nonControleDCC);
+	// console.log(nonControleDCC);
 	
 	// console.log(labels)
 	// console.log(conformes)

@@ -10,7 +10,9 @@ let fichesConformes =getFichesConformes()
 let fichesNonConformes1semaine = getfiches1Semaine()
 let fichesNonConformes2semaine = getfiches2semaines()
 let fichesMisesAJours = getFicheMisesAJour()
+
 function showFichesFiltered() {
+
     $(".circle.GreenBackground").empty()
     $(".circle.RedBackground").empty()
     $(".circle.OrangeBackground").empty()
@@ -43,4 +45,4 @@ function showFichesFiltered() {
 }
 
 filter.handler= showFichesFiltered
-
+showFichesFiltered()
