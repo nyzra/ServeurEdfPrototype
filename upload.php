@@ -83,7 +83,6 @@ $spreadsheet = $reader->load($_FILES['file']['tmp_name']);*/
 $path = 'data/movies-100.xlsx';
 # open the file
 $reader = ReaderEntityFactory::createXLSXReader();
-echo $_FILES['file']['tmp_name'];
 $reader->open($_FILES['file']['tmp_name']);
 # read each cell of each row of each sheet
 
@@ -99,6 +98,13 @@ foreach ($reader->getSheetIterator() as $sheet) {
   // on commence a 10 pour ne pas avoir les lignes vides du début du fichier
   foreach ($row->getCells() as $cell) {
     array_push($t,  $cell->getValue() );
+}
+foreach($t as &$information){
+  // on elève les guillemet pour éviter tout problème
+  if(is_string($information) ){
+    $information= str_replace('"', '', $information);
+  }
+
 }
   if ($i > 10) {
     if (preg_match("/CONTACT :(.*$)/", $t[15], $matches)) {
@@ -128,19 +134,27 @@ foreach ($reader->getSheetIterator() as $sheet) {
     } else {
       $pro = '["NULL"]';
     }
-    $dateD=$t[8];
-    $dateF=$t[9];
-    $resultD=$dateD->format('d/m/Y');
-    $resultF=$dateF->format('d/m/Y');
-    $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`, `DateDebut`,
-  `DateFin`, `DCC`, `Materiel`, `Conformite`, `Motif`, `Precision`, `Metier`, `Contact`) 
-  VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' . $resultD . '"' . "," . '"' . $resultF . '"' . "," . '"' . $t[10] . '"' . "," . '"' . $t[11] . '"' . "," . '"' . $t[12] . '"' . "," . '"' . $t[13] . '"' . "," . '"' . $t[14] . '"' . "," . "'" . $pro . "'" . "," . '"' . $contact . '"' . ")";
-    $db->prepare($sql_insert);
+    if($t[6]=="Ecart pirate"){
+      $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`) 
+      VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . ")";
+     
+    }
+    else{
+      $dateD=$t[8];
+      $dateF=$t[9];
+      $resultD=$dateD->format('d/m/Y');
+      $resultF=$dateF->format('d/m/Y');
+      $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`, `DateDebut`,
+    `DateFin`, `DCC`, `Materiel`, `Conformite`, `Motif`, `Precision`, `Metier`, `Contact`) 
+    VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' . $resultD . '"' . "," . '"' . $resultF . '"' . "," . '"' . $t[10] . '"' . "," . '"' . $t[11] . '"' . "," . '"' . $t[12] . '"' . "," . '"' . $t[13] . '"' . "," . '"' . $t[14] . '"' . "," . "'" . $pro . "'" . "," . '"' . $contact . '"' . ")";
+   
+    }
+       $db->prepare($sql_insert);
     try {
       $db->exec($sql_insert);
     } catch (Exception $e) {
       echo $e;
-      // retour a la page drang and drop + popup/alerte qui dit d'enlever les double guillement dans le fichier et si possible indiquer ou
+      // cretour a la page drang and drop + popup/alerte qui dit d'enlever les double guillement dans le fichier et si possible indiquer ou
     }
   }
   $i++;
@@ -185,7 +199,7 @@ function Export_csv($result){
 function export_json(){
   global $db;
   for($i=1;$i<9;$i++){
-    $sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM S".$i."";
+    $sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact ,MailEnvoye FROM S".$i."";
     $result = $db->query($sql);
     $data=Export_csv($result);
     $myfile = fopen("Data/S".$i.".json", "w");
