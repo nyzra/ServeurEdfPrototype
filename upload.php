@@ -52,7 +52,6 @@ $sql_create = 'CREATE TABLE `edf`.`S8`
 $db->prepare($sql_create);
 try {
   $db->exec($sql_create);
-  $db->exec($sql_create);
 } catch (Exception $e) {
   echo $e;
 }

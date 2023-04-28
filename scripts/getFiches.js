@@ -9,21 +9,21 @@ let S8 = []
 
 
 async function  loadData(){
-     S1=await loadJson('../Data/S1.json')
+     S1=await loadJson('Data/S1.json')
 
-     S2=await loadJson('../Data/S2.json')
+     S2=await loadJson('Data/S2.json')
 
-     S3=await loadJson('../Data/S3.json')
+     S3=await loadJson('Data/S3.json')
 
-     S4=await loadJson('../Data/S4.json')
+     S4=await loadJson('Data/S4.json')
 
-     S5=await loadJson('../Data/S5.json')
+     S5=await loadJson('Data/S5.json')
 
-     S6=await loadJson('../Data/S6.json')
+     S6=await loadJson('Data/S6.json')
 
-     S7=await loadJson('../Data/S7.json')
+     S7=await loadJson('Data/S7.json')
 
-     S8=await loadJson('../Data/S8.json')
+     S8=await loadJson('Data/S8.json')
 }
 
 
