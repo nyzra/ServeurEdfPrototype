@@ -9,7 +9,7 @@ var Semaines = ["S1" ,"S2" ,"S3" ,"S4" ,"S5" ,"S6" ,"S7" ,"S8"]
 
 var metier = "SLT"
 
-console.log("----")
+//console.log("----")
 
 
 // Fiche de la semaine c / nc /  DCC
@@ -35,7 +35,7 @@ for (var i = 0; i < data1.length; i++) {
 	}
 
 }
-console.log(fichesSemaine);
+//console.log(fichesSemaine);
 doughnutChart("chart7", Object.keys(fichesSemaine), Object.values(fichesSemaine), "Etat des fiches de la semaine")
 
 
@@ -44,7 +44,7 @@ doughnutChart("chart7", Object.keys(fichesSemaine), Object.values(fichesSemaine)
 // Evolution fiches non valides sur nombres de fiches
 var nbrFiches = []
 var nbrFichesNC = []
-console.log(dataTotal)
+//console.log(dataTotal)
 for (var i = 0; i < dataTotal.length; i++) {
 	var data = dataTotal[i];
 	var Fe = 0;
@@ -63,7 +63,7 @@ for (var i = 0; i < dataTotal.length; i++) {
 	nbrFichesNC.push(FeNC);
 
 }
-console.log(nbrFiches, nbrFichesNC);
+//console.log(nbrFiches, nbrFichesNC);
 stackedLinesChart("chart8", Semaines ,[nbrFiches, nbrFichesNC] ,["Fiches totales" ,"Fiches non conformes"] ,"Evolution du nombre de fiches", "Nombre de fiches", "Semaines")
 
 
@@ -87,7 +87,7 @@ for (var i = 0; i < dataTotal.length; i++) {
 	NonControleeDCC.push(DCC);
 
 }
-console.log(NonControleeDCC);
+//console.log(NonControleeDCC);
 lineChart("chart9" ,Semaines ,NonControleeDCC ,"DCC (Mj)" ,"Evolution de la DCC non controlée par semaine (" + metier + ")" ,"DCC non controlée en Mj" ,"Semaines")
 
 

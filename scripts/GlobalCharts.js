@@ -8,7 +8,7 @@ var [data1 , data2 ,data3 , data4 , data5 , data6 , data7 ,data8] =await getAllW
 
 var dataTotal = [data1 ,data2 ,data3 ,data4 ,data5 ,data6 ,data7 ,data8]
 
-console.log(dataTotal)
+//console.log(dataTotal)
 // Fiches conformes - non conformes de la semaine (bars)
 var dictMetiers = {"A2P": {"Conforme": 0, "NonConforme": 0 ,"Total": 0},
 					"C2E": {"Conforme": 0, "NonConforme": 0 ,"Total": 0},
@@ -51,7 +51,7 @@ for (var i = 0; i < dataTotal.length; i++) {
 	}
 	listeTaux.push(Math.round(100.0 * taux["Conforme"] / (taux["NonConforme"] + taux["Conforme"])))
 }
-console.log(listeTaux)
+//console.log(listeTaux)
 lineChart("chart2" ,Semaines ,listeTaux ,"Taux" ,"Evolution taux de conformité" ,"Pourcentage de conformitée" ,"Semaines")
 
 
@@ -74,7 +74,7 @@ for (var i = 0; i < data1.length; i++) {
 		}
 	}
 }
-console.log(dictMetiersDCC ,DCCTotal)
+//console.log(dictMetiersDCC ,DCCTotal)
 doughnutChart("chart3", Metiers, Object.values(dictMetiersDCC), "DCC non controlée par métier")
 
 
@@ -92,7 +92,7 @@ for (var i = 0; i < dataTotal.length; i++) {
 	}
 	listeDCC.push(total);
 }
-console.log(listeDCC);
+//console.log(listeDCC);
 lineChart("chart4" ,Semaines ,listeDCC ,"DCC (Mj)" ,"Evolution de la DCC non controlée par semaine" ,"DCC non controlée en Mj" ,"Semaines")
 
 
@@ -110,7 +110,7 @@ for (var i = 0; i < data1.length; i++) {
 		
 	}
 }
-console.log(listeZones);
+//console.log(listeZones);
 doughnutChart("chart5", Object.keys(listeZones), Object.values(listeZones), "DCC non controlée par zone")
 
  
@@ -129,7 +129,7 @@ for (var i = 0; i < data1.length; i++) {
 		
 	}
 }
-console.log(motifs);
+//console.log(motifs);
 doughnutChart("chart6", Object.keys(motifs), Object.values(motifs), "Motifs de non conformité")
 
 
