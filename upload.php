@@ -5,12 +5,44 @@ header('Content-Type: text/html; charset=utf-8');
 
 global $db;
 
-//on ne garde que les tables des 2 dernieres semaine
-$sql_drop = "DROP TABLE IF EXISTS info_fiche_1 ;"; // on supprime la semaine 1
-$db->prepare($sql_drop);
-$sql_rename = "ALTER TABLE info_fiche_2 RENAME info_fiche_1 ;"; // on la remplace par la semaine 2
-$db->prepare($sql_rename);
-$sql_create = 'CREATE TABLE If NOT EXISTS `edf`.`info_fiche_2` 
+//on ne garde que les tables des 8 dernieres semaine
+function renameEXL(){
+  global $db;
+  for ($i=1;$i<8;$i++){
+    $sql_drop = "DROP TABLE IF EXISTS S".$i.";"; // on supprime la semaine i
+    $db->prepare($sql_drop);
+    $sql_rename = "ALTER TABLE S".($i+1)." RENAME S".$i.";"; // on la remplace par la semaine i+1
+    $db->prepare($sql_rename);
+    try {
+      $db->exec($sql_drop);
+      $db->exec($sql_rename);
+    } catch (Exception $e) {
+      echo $e;
+    }
+  }
+}
+function create(){
+  global $db;
+  for ($i=1;$i<9;$i++){
+    $sql_create = 'CREATE TABLE If NOT EXISTS `edf`.`S'.$i.'` 
+    ( `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT, `Tranche` VARCHAR(255) NULL DEFAULT NULL , `Localisation` VARCHAR(255) NULL DEFAULT NULL , `Batiment` VARCHAR(255) NULL DEFAULT NULL ,
+    `Niveau` VARCHAR(255) NULL DEFAULT NULL , `NumLocal` VARCHAR(255) NULL DEFAULT NULL , `NumDemande` VARCHAR(255) , 
+    `NomColis` VARCHAR(255) NULL DEFAULT NULL , `DateDebut` VARCHAR(255) NULL DEFAULT NULL , `DateFin` VARCHAR(255) NULL DEFAULT NULL ,
+    `DCC` VARCHAR(255) NULL DEFAULT NULL , `Materiel` VARCHAR(255) NULL DEFAULT NULL , `Conformite` VARCHAR(255) NULL DEFAULT NULL ,
+    `Motif` VARCHAR(255) NULL DEFAULT NULL , `Precision` VARCHAR(255) NULL DEFAULT NULL , `Metier` VARCHAR(255) NULL DEFAULT NULL,
+    `Contact` TEXT(6000) NULL DEFAULT NULL, `MailEnvoye` BOOLEAN DEFAULT false ) ENGINE = InnoDB;'; // on crée une nouvelle table pour la semaine 3
+    $db->prepare($sql_create);
+    try {
+      $db->exec($sql_create);
+    } catch (Exception $e) {
+      echo $e;
+    }
+  }
+  
+}
+create();
+renameEXL();
+$sql_create = 'CREATE TABLE `edf`.`S8` 
 ( `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT, `Tranche` VARCHAR(255) NULL DEFAULT NULL , `Localisation` VARCHAR(255) NULL DEFAULT NULL , `Batiment` VARCHAR(255) NULL DEFAULT NULL ,
 `Niveau` VARCHAR(255) NULL DEFAULT NULL , `NumLocal` VARCHAR(255) NULL DEFAULT NULL , `NumDemande` VARCHAR(255) , 
 `NomColis` VARCHAR(255) NULL DEFAULT NULL , `DateDebut` VARCHAR(255) NULL DEFAULT NULL , `DateFin` VARCHAR(255) NULL DEFAULT NULL ,
@@ -19,14 +51,11 @@ $sql_create = 'CREATE TABLE If NOT EXISTS `edf`.`info_fiche_2`
 `Contact` TEXT(6000) NULL DEFAULT NULL, `MailEnvoye` BOOLEAN DEFAULT false ) ENGINE = InnoDB;'; // on crée une nouvelle table pour la semaine 3
 $db->prepare($sql_create);
 try {
-  $db->exec($sql_drop);
   $db->exec($sql_create);
-  $db->exec($sql_rename);
   $db->exec($sql_create);
 } catch (Exception $e) {
   echo $e;
 }
-
 
 require 'vendor/autoload.php';
 
@@ -104,7 +133,7 @@ foreach ($reader->getSheetIterator() as $sheet) {
     $dateF=$t[9];
     $resultD=$dateD->format('d/m/Y');
     $resultF=$dateF->format('d/m/Y');
-    $sql_insert = "INSERT INTO `info_fiche_2`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`, `DateDebut`,
+    $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`, `DateDebut`,
   `DateFin`, `DCC`, `Materiel`, `Conformite`, `Motif`, `Precision`, `Metier`, `Contact`) 
   VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' . $resultD . '"' . "," . '"' . $resultF . '"' . "," . '"' . $t[10] . '"' . "," . '"' . $t[11] . '"' . "," . '"' . $t[12] . '"' . "," . '"' . $t[13] . '"' . "," . '"' . $t[14] . '"' . "," . "'" . $pro . "'" . "," . '"' . $contact . '"' . ")";
     $db->prepare($sql_insert);
@@ -154,23 +183,19 @@ function Export_csv($result){
   $data=preg_replace("/\]\"/","]",$data);
   return $data;
 }
-
-$sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_2";
-$result = $db->query($sql);
-$data=Export_csv($result);
-$myfile = fopen("Data/Data.json", "w");
-//$myfile = fopen("Data/Data2.js", "w");
-fwrite($myfile, $data);
-fclose($myfile);
-
-$sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM info_fiche_1";
-$result = $db->query($sql);
-$data=Export_csv($result);
-$myfile = fopen("Data/oldData.json", "w");
-//$myfile = fopen("Data/Data1.js", "w");
-fwrite($myfile, $data);
-fclose($myfile);
-//header('location:index.html');
+function export_json(){
+  global $db;
+  for($i=1;$i<9;$i++){
+    $sql = "SELECT Tranche, Localisation, Batiment, Niveau, NumLocal, NumDemande, NomColis, DateDebut, DateFin, DCC, Materiel, Conformite, Motif, `Precision`, Metier, Contact FROM S".$i."";
+    $result = $db->query($sql);
+    $data=Export_csv($result);
+    $myfile = fopen("Data/S".$i.".json", "w");
+    fwrite($myfile, $data);
+    fclose($myfile);
+  }
+}
+export_json();
+header('location:index.html');
 exit;
 
 ?>
