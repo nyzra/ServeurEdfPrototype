@@ -1,4 +1,4 @@
-import { getFichesNonConformes, createFicheNonConforme , loadData} from "./getFiches"
+import { getFichesNonConformes, createFicheNonConforme , loadData} from "./getFiches.js"
 await loadData()
 let filter = window.filter
 

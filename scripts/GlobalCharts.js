@@ -1,5 +1,5 @@
-import { stackedBarChart , lineChart , doughnutChart} from "./ChartsLibrary"
-import { getAllWeks , loadData} from './getFiches'
+import { stackedBarChart , lineChart , doughnutChart} from "./ChartsLibrary.js"
+import { getAllWeks , loadData} from './getFiches.js'
 await loadData()
 var Metiers = ["A2P" ,"C2E" ,"Conduite" ,"Equipe Commune" ,"MMCR" ,"SAE" ,"SLT" ,"SPR"]
 var Semaines = ["S1" ,"S2" ,"S3" ,"S4" ,"S5" ,"S6" ,"S7" ,"S8"]

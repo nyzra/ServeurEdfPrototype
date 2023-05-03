@@ -1,4 +1,4 @@
-let circles =["Tick","Green","Red","Orange","DarkOrange"]
+let circles =["Tick","Green","Red","Orange","DarkOrange","Black"]
 let startName = ".linkTo"
 let endName="Circle"
 circles.forEach((value)=>{

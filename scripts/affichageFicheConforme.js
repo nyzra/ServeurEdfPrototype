@@ -1,4 +1,4 @@
-import { getFichesConformes, CreateFicheConforme ,loadData } from "./getFiches"
+import { getFichesConformes, CreateFicheConforme ,loadData } from "./getFiches.js"
 await loadData()
 let filter = window.filter
 
@@ -14,5 +14,4 @@ function showFichesFiltered() {
 }
 
 filter.handler= showFichesFiltered
-
-getFichesConformes()
+showFichesFiltered()
