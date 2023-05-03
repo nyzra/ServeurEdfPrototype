@@ -1,5 +1,5 @@
-import { stackedBarChart , lineChart , stackedLinesChart , doughnutChart} from "./ChartsLibrary"
-import { getAllWeks ,loadData } from './getFiches'
+import { stackedBarChart , lineChart , stackedLinesChart , doughnutChart} from "./ChartsLibrary.js"
+import { getAllWeks ,loadData } from './getFiches.js'
 await loadData()
 var [data1 , data2 ,data3 , data4 , data5 , data6 , data7 ,data8] =await getAllWeks()
 

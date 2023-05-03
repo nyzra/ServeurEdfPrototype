@@ -135,9 +135,8 @@ foreach($t as &$information){
       $pro = '["NULL"]';
     }
     if($t[6]=="Ecart pirate"){
-      $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`) 
-      VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . ")";
-     
+      $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`,`Motif`, `Precision`,  `Contact`) 
+      VALUES (" . '"' . $t[1] . '"' . "," . '"' . $t[2] . '"' . "," . '"' . $t[3] . '"' . "," . '"' . $t[4] . '"' . "," . '"' . $t[5] . '"' . "," . '"' . $t[6] . '"' . "," . '"' . $t[7] . '"' . "," . '"' .$t[13] . '"' . "," . '"' . $t[14] . '"' . "," . '"' . $t[15] . '"' . ")";
     }
     else{
       $dateD=$t[8];

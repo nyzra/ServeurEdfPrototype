@@ -155,6 +155,12 @@ nav a:hover {
 .RedBackground {
   background: rgba(224, 24, 11, 1);
 }
+.BlackBackground {
+  background: black;
+}
+.BlackBackground p{
+  color: white;
+}
 
 .OrangeBackground {
   background: rgba(247, 135, 52, 1);
@@ -191,4 +197,6 @@ nav a:hover {
   flex-direction: row;
 align-items: center;
 justify-content: center;
+flex: 1;
+min-width: fit-content;
 }

@@ -1,4 +1,4 @@
-import { getFichesConformes,getFichesNonConformes, getfiches1Semaine,getfiches2semaines,loadData ,getFicheMisesAJour ,getFiches} from "./getFiches"
+import { getFichesConformes,getFichesNonConformes, getfiches1Semaine ,getFichesFantomes,getfiches2semaines,loadData ,getFicheMisesAJour ,getFiches} from "./getFiches.js"
 import { printGraph } from "./graph.js"
 await loadData()
 
@@ -10,13 +10,14 @@ let fichesConformes =getFichesConformes()
 let fichesNonConformes1semaine = getfiches1Semaine()
 let fichesNonConformes2semaine = getfiches2semaines()
 let fichesMisesAJours = getFicheMisesAJour()
-
+let fichesFantomes = getFichesFantomes()
 function showFichesFiltered() {
 
     $(".circle.GreenBackground").empty()
     $(".circle.RedBackground").empty()
     $(".circle.OrangeBackground").empty()
     $(".circle.DarkOrangeBackground").empty()
+    $(".circle.BlackBackground").empty()
     $(".NumberUpdated").empty()
 
     
@@ -39,6 +40,8 @@ function showFichesFiltered() {
     
     $(".NumberUpdated").append(filter.filteredFiches.length)
     $(".NumberUpdated").append(" fiches mises a jours")
+
+    $(".circle.BlackBackground").append(`<p>${fichesFantomes.length } </p>`)
 
     filter.notFilterFiches = fiches
     printGraph(filter.filteredFiches)

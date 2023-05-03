@@ -1,4 +1,4 @@
-import {CreateCustomSelector } from "./customSelect"
+import {CreateCustomSelector } from "./customSelect.js"
 
 let filter = window.filter
 

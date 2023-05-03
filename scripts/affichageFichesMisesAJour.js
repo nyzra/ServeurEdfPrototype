@@ -1,4 +1,4 @@
-import { getFicheMisesAJour, CreateFicheConforme ,loadData } from "./getFiches"
+import { getFicheMisesAJour, CreateFicheConforme ,loadData } from "./getFiches.js"
 await loadData()
 let filter = window.filter
 

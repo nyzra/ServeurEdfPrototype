@@ -85,7 +85,7 @@ async function loadData() {
 
     S8 = await loadJson('Data/S8.json')
     S8gohst =  S8.filter(fiche => {
-        return fiche["NomColis"] != "Ecart pirate"
+        return fiche["NomColis"] === "Ecart pirate"
     })
     S8 = S8.filter(fiche => {
         return fiche["NomColis"] != "Ecart pirate"
@@ -104,6 +104,10 @@ async function loadJson(name) {
 function getFiches() {
 
     return S8
+}
+
+function getFichesFantomes(){
+    return S8gohst
 }
 
 function getAllWeks() {
@@ -204,6 +208,45 @@ function createFicheNonConforme(infosFiches) {
 </div>\
 </div>`
 }
+function CreateFicheFantomes(infosFiches) {
+    return `<div class="fiche"> \
+<div class="nomColis">\
+    <p>${infosFiches["NomColis"]}</p>\
+</div>\
+<div class="ligneInfo">\
+    <div class="caractéristiquesFiche">\
+\
+        <p>Batiment</p>\
+        <div class="affichageInfo">\
+            <p>${infosFiches["Batiment"]}</p>\
+        </div>\
+    </div>\
+    <div class="caractéristiquesFiche">\
+\
+        <p>Niveau</p>\
+        <div class="affichageInfo">\
+            <p>${infosFiches["Niveau"]}</p>\
+        </div>\
+    </div>\
+</div>\
+<div class="ligneInfo">\
+    <div class="caractéristiquesFiche">\
+\
+        <p>Precision</p>\
+        <div class="affichageInfo">\
+            <p>${infosFiches["Precision"]}</p>\
+        </div>\
+    </div>\
+    <div class="caractéristiquesFiche">\
+\
+        <p>Numero de local</p>\
+        <div class="affichageInfo">\
+            <p>${infosFiches["NumLocal"]}</p>\
+        </div>\
+    </div>\
+</div>\
+</div>`
+}
 
 function getFicheMisesAJour() {
     let fichesMisesAJours = []
@@ -261,4 +304,4 @@ function getfiches2semaines() {
 }
 
 
-export { getAllWeks, getFiches, getfiches2semaines, getfiches1Semaine, getFichesConformes, getFichesNonConformes, createFicheNonConforme, CreateFicheConforme, loadData, getFicheMisesAJour }
+export {getFichesFantomes,CreateFicheFantomes,getAllWeks, getFiches, getfiches2semaines, getfiches1Semaine, getFichesConformes, getFichesNonConformes, createFicheNonConforme, CreateFicheConforme, loadData, getFicheMisesAJour }

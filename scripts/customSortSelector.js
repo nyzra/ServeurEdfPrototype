@@ -1,4 +1,4 @@
-import {CreateCustomSelector } from "./customSelect"
+import {CreateCustomSelector } from "./customSelect.js"
 
 CreateCustomSelector("parameter")
 filter.filterChoice = $(".select-selected.parameterSort ").text()
