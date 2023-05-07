@@ -2,38 +2,28 @@
 .GeneralInformation {
     display: flex;
     align-items: center;
-    flex-direction: column;
-  
-    background: var(--light-blue);
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 30px;
     margin-top: 20px;
     width: 70%;
     padding-left: 10px;
     padding-right: 10px;
     opacity: 1;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+
   }
   
   /* Choix du filtre */
   
 /* Partie d'affichage avec les cercles de couleurs */
-
-.differentCategories {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: stretch;
-    width: 90%;
-    opacity: 1;
-    padding-top: 20px;
-    flex-wrap: wrap;
-  }
+.GeneralInformation a {
+  width: 30%;
+}
   
   .displayCategories {
     display: flex;
-    flex-shrink: 1;
+
     flex-direction: column;
     align-items: center;
     justify-content: start;
@@ -41,63 +31,32 @@
   }
   
   .displayCategories p {
-    width: 150px;
+
   }
   
-  .takeAllHeighLeft {
-    flex: 1;
-    vertical-align: middle;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
   
   .displayCategories a {
     color: black;
     text-decoration: none;
   }
   
-  .TickBackground {
-    background: url("../images/tick.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    overflow: hidden;
+  .blueBackground{
+    background-color: #2CB2F9;
   }
-  
-  .sizeOf100px {
-    width: 100px;
-    height: 100px;
+  .greenBackground{
+    background-color: #75ED7F;
   }
-  
-  .circle {
-  
-    width: 100px;
-    height: 100px;
-    opacity: 1;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
+  .purpleBackground{
+    background-color: #B88BE6;
   }
-  
-  .boxShadow {
-    box-shadow: 0 0 5px #000000;
+
+  .redBackground{
+    background-color: #E9575A;
   }
-  
-  .boxShadow.active,
-  .boxShadow:hover {
-    box-shadow: 0 0 20px #000000
+  .orangeBackground{
+    background-color: #FB9A68;
   }
-  
-  .circle p {
-    width: fit-content;
-  }
-  
-  .center {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
+  .yellowBackground{
+    background-color: #FFC355;
   }

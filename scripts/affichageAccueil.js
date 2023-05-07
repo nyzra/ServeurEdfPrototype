@@ -22,26 +22,26 @@ function showFichesFiltered() {
 
     
     filter.notFilterFiches =fichesConformes
-    $(".circle.GreenBackground").append(`<p>${filter.filteredFiches.length } </p>`)
+    $(".nbConformes").append(`<p>${filter.filteredFiches.length } </p>`)
 
     
     filter.notFilterFiches = fichesNonConformes
-    $(".circle.RedBackground").append(`<p>${filter.filteredFiches.length } </p>`)
+    $(".nbNonConformes").append(`<p>${filter.filteredFiches.length } </p>`)
 
 
     filter.notFilterFiches = fichesNonConformes1semaine
-    $(".circle.OrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
+    $(".nbNonConformes1Semaine").append(`<p>${filter.filteredFiches.length } </p>`)
 
 
     filter.notFilterFiches = fichesNonConformes2semaine
-    $(".circle.DarkOrangeBackground").append(`<p>${filter.filteredFiches.length } </p>`)
+    $(".nbNonConformes2Semaine").append(`<p>${filter.filteredFiches.length } </p>`)
 
     filter.notFilterFiches = fichesMisesAJours
     
-    $(".NumberUpdated").append(filter.filteredFiches.length)
-    $(".NumberUpdated").append(" fiches mises a jours")
+    $(".nbMisAJour").append(`<p>${filter.filteredFiches.length } </p>`)
 
-    $(".circle.BlackBackground").append(`<p>${fichesFantomes.length } </p>`)
+
+    $(".nbPirates").append(`<p>${fichesFantomes.length } </p>`)
 
     filter.notFilterFiches = fiches
     printGraph(filter.filteredFiches)
