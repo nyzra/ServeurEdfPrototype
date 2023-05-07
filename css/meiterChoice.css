@@ -7,6 +7,10 @@
 .metierChoice{
     display: flex;
     margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 40px;
+    margin-left: 40px;
     
 }
 .metierChoice p{ color: var(--borderColor);

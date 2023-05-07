@@ -25,8 +25,8 @@ if (searchParams.has("filter") ){
              correctArgument=true
             }
     }
-    if(!correctArgument){
-        metiers[0].classList.add("active")
-    }
-    filter.metierChoice=$(".metierChoice p.active").text()
 }
+if(!correctArgument){
+    metiers[0].classList.add("active")
+}
+filter.metierChoice=$(".metierChoice p.active").text()
