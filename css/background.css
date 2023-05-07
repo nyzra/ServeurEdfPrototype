@@ -1,0 +1,19 @@
+.blueBackground{
+    background: linear-gradient(to top right, #2EB0FB, #34C9CF);
+  }
+  .greenBackground{
+    background: linear-gradient(to top right, #7CEA80, #6BDDC2);
+  }
+  .purpleBackground{
+    background: linear-gradient(to top right, #B789E5, #9FC6F1);
+  }
+
+  .redBackground{
+    background: linear-gradient(to top right, #EC555C,#EA8FDC);
+  }
+  .orangeBackground{
+    background: linear-gradient(to top right, #FC946B, #FCB664);
+  }
+  .yellowBackground{
+    background: linear-gradient(to top right, #FCC157, #FEEC7E);
+  }

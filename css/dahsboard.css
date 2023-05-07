@@ -1,4 +1,4 @@
-
+* {margin: 0; padding: 0;}
 .GeneralInformation {
     display: flex;
     align-items: center;
@@ -18,45 +18,40 @@
   
 /* Partie d'affichage avec les cercles de couleurs */
 .GeneralInformation a {
-  width: 30%;
+  width: calc(350px);
+  text-decoration: none; 
 }
   
   .displayCategories {
     display: flex;
-
+    border-radius: 10px;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     opacity: 1;
+    padding: 15px;
+    height: 125px;
+    position: relative;
   }
-  
-  .displayCategories p {
-
+  .displayCategories p:first-child{
+    margin-bottom: 15px;
   }
-  
 
-  
   .displayCategories a {
     color: black;
     text-decoration: none;
   }
   
-  .blueBackground{
-    background-color: #2CB2F9;
-  }
-  .greenBackground{
-    background-color: #75ED7F;
-  }
-  .purpleBackground{
-    background-color: #B88BE6;
-  }
+ 
 
-  .redBackground{
-    background-color: #E9575A;
+  .nbMisAJour , .nbConformes , .nbNonConformes , .nbNonConformes1Semaine ,.nbNonConformes2Semaine ,.nbMisAJour , .nbPirates {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
+    bottom: 10px;
   }
-  .orangeBackground{
-    background-color: #FB9A68;
-  }
-  .yellowBackground{
-    background-color: #FFC355;
-  }
+  .GlowHover:hover {
+    filter: brightness(110%);
+}
