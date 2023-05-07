@@ -1,4 +1,39 @@
-.chart {
-    position: relative;
-    max-width: 40vw !important;
-  }
+.graphs {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+  width: 100vw;
+  top: 17vh;
+/*  height: 100vh;*/
+  background-color: var(--light);
+}
+
+.graphique {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: var(--white);
+  width: 45%;
+  height: 50vh;
+  border-radius: 20px;
+  box-shadow: 
+    inset 0 0 15px rgba(55, 84, 170,0),
+    inset 0 0 20px rgba(255, 255, 255,0),
+    7px 7px 15px rgba(55, 84, 170,.15),
+    -7px -7px 20px rgba(255, 255, 255,1),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
+
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+
+.graphique:hover {
+  transform: scale(1.05);
+}

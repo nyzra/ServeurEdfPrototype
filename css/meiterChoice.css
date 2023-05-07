@@ -1,46 +1,46 @@
 :root{
     --borderSize:2px;
     --halfborderSize:1px;
-    --borderColor:blue;
+    margin: 0;
   }
 
 .metierChoice{
+    position: relative;
     display: flex;
-    margin: 0;
     justify-content: center;
     flex-wrap: wrap;
     margin-right: 40px;
     margin-left: 40px;
+    font-family: "EDF-Light";
+    font-size: 1.75em;
+    top: 17vh;
     
 }
-.metierChoice p{ color: var(--borderColor);
-    border-top: var(--borderSize) solid var(--borderColor);
-    border-bottom: var(--borderSize) solid var(--borderColor);
-    border-left: var(--halfborderSize) solid var(--borderColor);
-    border-right: var(--halfborderSize) solid var(--borderColor);
-    padding: 0px 5px 0px 5px;
-    margin: 0;
+.metierChoice p{ color: var(--blue);
+    border-top: var(--borderSize) solid var(--lightblue);
+    border-bottom: var(--borderSize) solid var(--lightblue);
+    border-left: var(--halfborderSize) solid var(--lightblue);
+    border-right: var(--halfborderSize) solid var(--lightblue);
+    padding: 5px 20px;
+    
+
 }
 .metierChoice p:last-child{
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-    border-left: var(--halfborderSize) solid var(--borderColor);
-    border-right: var(--borderSize) solid var(--borderColor);
-    padding: 0px 5px 0px 5px;
+    border-right: var(--borderSize) solid var(--lightblue);
 }
 .metierChoice p:first-child{
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-    border-left: var(--borderSize) solid var(--borderColor);
-    border-right: var(--halfborderSize) solid var(--borderColor);
-    padding: 0px 5px 0px 5px;
+    border-left: var(--borderSize) solid var(--lightblue);
 }
 .metierChoice p.active{
-background-color: var(--borderColor);
-color: black;
+background-color: var(--lightblue);
+color: var(--dark);
 }
 .metierChoice p:hover{
     cursor: pointer;
-    background-color: var(--borderColor);
-    color: black;
+    background-color: var(--lightblue);
+    color: color: var(--dark);
 }

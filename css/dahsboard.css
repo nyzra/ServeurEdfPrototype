@@ -1,57 +1,99 @@
 * {margin: 0; padding: 0;}
-.GeneralInformation {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.indicators {
+  position: relative;
+  display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-evenly;
     flex-wrap: wrap;
-    row-gap: 30px;
-    margin-top: 20px;
-    width: 80%;
-    padding-left: 10px;
-    padding-right: 10px;
-    opacity: 1;
-
-  }
-  
-  /* Choix du filtre */
-  
-/* Partie d'affichage avec les cercles de couleurs */
-.GeneralInformation a {
-  width: calc(350px);
-  text-decoration: none; 
+  top: 17vh;
+  width: 100vw;
+  height: 50vh;
+  background-color: var(--light);
 }
-  
-  .displayCategories {
-    display: flex;
-    border-radius: 10px;
+
+.indicators a {
+  text-decoration: none;
+}
+
+.categorie {
+  display: flex;
+  height: 35%;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 25%;
+    flex-shrink: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    opacity: 1;
-    padding: 15px;
-    height: 125px;
-    position: relative;
-  }
-  .displayCategories p:first-child{
-    margin-bottom: 15px;
-  }
+  justify-content: space-evenly;
+    background-color: var(--white);
+    box-shadow: 0 4px 16px 0 rgba( 0, 0, 0, 0.1 );
+    border-radius: 7px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  backface-visibility: ;
+}
 
-  .displayCategories a {
-    color: black;
-    text-decoration: none;
-  }
-  
- 
+.categorie:hover {
+  transform: scale(1.05);
+}
 
-  .nbMisAJour , .nbConformes , .nbNonConformes , .nbNonConformes1Semaine ,.nbNonConformes2Semaine ,.nbMisAJour , .nbPirates {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0;
-    position: absolute;
-    bottom: 10px;
-  }
-  .GlowHover:hover {
-    filter: brightness(110%);
+.categorie p {
+  position: relative;
+  font-family: "EDF-Bold";
+  font-size: 3.25em;
+  color: var(--light);
+  text-shadow: -1px -1px 2px rgba(255,255,255,.1), 2px 2px 2px rgba(0,0,0,.5);
+/*  text-shadow: .1em .1em 0 hsl(200 50% 30%);*/
+}
+
+
+.categorie h1 {
+  font-family: "EDF-Regular";
+  font-size: 1.75em;
+  color: var(--dark);
+  text-align: center;
+}
+
+
+
+.graphs {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+  top: 15vh;
+  width: 100vw;
+/*  height: 100vh;*/
+  background-color: var(--light);
+}
+
+.graphique {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: var(--white);
+  width: 45%;
+  height: 50vh;
+  border-radius: 20px;
+  box-shadow: 
+    inset 0 0 15px rgba(55, 84, 170,0),
+    inset 0 0 20px rgba(255, 255, 255,0),
+    7px 7px 15px rgba(55, 84, 170,.15),
+    -7px -7px 20px rgba(255, 255, 255,1),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
+
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+
+.graphique:hover {
+  transform: scale(1.05);
 }

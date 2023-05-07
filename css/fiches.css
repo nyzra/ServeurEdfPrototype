@@ -13,8 +13,10 @@
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
+    top: 20vh;
+/*    z-index: 10;*/
   }
-
+/*
   
   .topWhiteSpace{position: -webkit-sticky;
     position: sticky;
@@ -22,16 +24,18 @@
     padding-top: 10px;
     background-color: white;
     width: 80%;
-  }
+  }*/
 /* Affichage des données des fiches d'entreposages */
 
 .containerFiches {
+  position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 80%;
+    top: 25vh;
   }
   
   .fiche {
