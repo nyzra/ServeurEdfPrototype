@@ -21,6 +21,7 @@
     top: 0px;
     padding-top: 10px;
     background-color: white;
+    width: 80%;
   }
 /* Affichage des données des fiches d'entreposages */
 
@@ -30,6 +31,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    width: 80%;
   }
   
   .fiche {
