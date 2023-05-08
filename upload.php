@@ -92,15 +92,15 @@ $reader->open($_FILES['file']['tmp_name']);
 
 $i = 1;
 
-$Metiers = ["IPE", "A2P", "SAE", "EC", "SLT", "MMCR", "LEVAGE", "LNU", "PS", "SPR", "ESSAI", "Conduite", "AMT", "EDF KD", "GC", "MEEI", "EDF MECA", "EDF", "AUTO", "ARDATEM", "KD", "CA"];
+$Metiers = ["IPE", "A2P", "SAE", "EC", "SLT", "MMCR", "LEVAGE", "LNU", "PS", "SPR", "ESSAI", "Conduite", "AMT", "EDF KD", "GC", "MEEI", "EDF MECA", "EDF", "AUTO", "ARDATEM", "KD", "CA" ,"ENPGV"];
 $MetiersCategories = [
-  "A2P" => array("LAB", "ES", "A2P"),
-  "C2E" => array("ES", "LAB"),
+  "A2P" => array("LAB", "ES", "A2P" ,"PS"),
+  "C2E" => array("ES", "LAB", "ESSAI"),
   "Conduite" => array("Conduite"),
-  "Equipe Commune" => array("EC", "IPE"),
+  "Equipe Commune" => array("EC", "IPE", "ARDATEM" ,"ENPGV"),
   "MMCR" => array("Meca", "Rob", "Atelier", "CHA", "MMCR", "EDF MECA"),
   "SAE" => array("ELEC", "AUTO", "SAE"),
-  "SLT" => array("KD", "LNU", "LS", "SLT", "EDF KD"),
+  "SLT" => array("KD", "LNU", "LS", "SLT", "EDF KD" ,"MEEI"),
   "SPR" => array("SPR"),
 ];
 function categoryMetier($m, $MetiersCategories)
