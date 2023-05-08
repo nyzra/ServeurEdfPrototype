@@ -1,4 +1,12 @@
 /* Partie pour les différent page d'affichage des fiches */
+.tier {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: fit-content;
+}
 
 .infofiche {
     border-radius: 10px;
