@@ -17,6 +17,7 @@ class Filter{
     set metierChoice(str){
         this._metierChoice=str
         this.filteredFiches=this.ApplyFilter(this._notFilterFiches)
+        console.log(this.filteredFiches)
         if(filter.filteredFiches!= null) this.handler()
 
     }
@@ -41,10 +42,17 @@ class Filter{
 
     propComparator(parameter) {
         return function (a, b) {
-            if (a[parameter] < b[parameter]) {
+            let firstValue =  a[parameter]
+            let secondValue = b[parameter]
+            if(parameter==="DCC"){
+                firstValue = parseFloat(firstValue)
+                secondValue  = parseFloat(secondValue)
+            }
+            
+            if (firstValue < secondValue) {
                 return -1;
             }
-            if (a[parameter] > b[parameter]) {
+            if (firstValue > secondValue) {
                 return 1;
             }
             return 0;
@@ -54,13 +62,17 @@ class Filter{
     
     SortFiler(fiches){
         if(this._filterChoice ==="" || fiches ==null) return fiches
+        console.log(this._filterChoice)
         fiches.sort(this.propComparator(this._filterChoice));
+
         if(this._filterChoice!="Contact"){
             fiches.reverse()}
+
         return fiches
     }
     
     FilterByMetier(fiches){
+
         if(this._metierChoice ==="" ) return null
         if(this._metierChoice ==="Global" ) return fiches
         return fiches.filter(fiche => {
@@ -68,7 +80,9 @@ class Filter{
     }
     
     ApplyFilter(fiches){
+
         fiches=this.FilterByMetier(fiches)
+
         fiches=this.SortFiler(fiches)
         return fiches
     }
