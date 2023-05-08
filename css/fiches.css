@@ -60,14 +60,18 @@
   .fiche p {
     font-size: 14px;
     color: white;
+    text-align: center;
   }
   
   .nomColis {
+    padding: 5px;
     background-color: rgba(4, 119, 191);
     width: 100%;
   }
   
   .numDemande {
+
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -75,7 +79,7 @@
     background-color: black;
     width: 100%;
     margin-bottom: 20px;
-    padding: 0px 10px 0px 10px;
+    padding: 5px 10px 5px 10px;
   }
   
   .fitsize{
@@ -112,7 +116,9 @@
     justify-content: start;
     align-items: center;
   }
-  
+  .caractéristiquesFiche p{
+    padding: 5px;
+  }
   .ligneInfo {
     width: 100%;
     display: flex;
@@ -122,14 +128,13 @@
   }
   
   .raisonTitle {
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 5px;
+
     background-color: rgba(4, 119, 191);
   }
   
   .raison {
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 5px;
     background-color: white;
   
   }
