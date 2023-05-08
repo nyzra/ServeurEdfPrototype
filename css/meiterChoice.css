@@ -5,7 +5,6 @@
   }
 
 .metierChoice{
-    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -13,7 +12,6 @@
     margin-left: 40px;
     font-family: "EDF-Light";
     font-size: 1.75em;
-    top: 17vh;
     
 }
 .metierChoice p{ color: var(--blue);
@@ -42,5 +40,5 @@ color: var(--dark);
 .metierChoice p:hover{
     cursor: pointer;
     background-color: var(--lightblue);
-    color: color: var(--dark);
+    color:  var(--dark);
 }
