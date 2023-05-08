@@ -141,7 +141,7 @@ function CreateFicheConforme(infosFiches) {
 <div class="ligneInfo">\
     <div class="caractéristiquesFiche">\
 \
-        <p>Charge calorifique</p>\
+        <p>DCC</p>\
         <div class="affichageInfo">\
             <p>${infosFiches["DCC"]}</p>\
         </div>\
@@ -185,7 +185,7 @@ function createFicheNonConforme(infosFiches) {
 <div class="ligneInfo">\
     <div class="caractéristiquesFiche">\
 \
-        <p>Charge calorifique</p>\
+        <p>DCC</p>\
         <div class="affichageInfo">\
             <p>${infosFiches["DCC"]}</p>\
         </div>\

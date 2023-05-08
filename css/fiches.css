@@ -21,7 +21,9 @@
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-
+    font-family: "EDF-Regular";
+    font-size: 1.75em;
+    color: var(--dark);
 /*    z-index: 10;*/
   }
 
@@ -29,7 +31,7 @@
     position: sticky;
     top: 0px;
     padding-top: 10px;
-    background-color: white;
+    background-color: var(--light);
     width: 80%;
   }
 /* Affichage des données des fiches d'entreposages */
@@ -78,8 +80,8 @@
     align-items: center;
     background-color: black;
     width: 100%;
-    margin-bottom: 20px;
-    padding: 5px 10px 5px 10px;
+    margin-bottom: 5px;
+    padding: 5px ;
   }
   
   .fitsize{
