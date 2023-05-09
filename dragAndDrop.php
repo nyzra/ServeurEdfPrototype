@@ -37,6 +37,7 @@
 
     // Ajoutez un gestionnaire d'événements pour l'événement "drop"
     drop_zone.addEventListener('drop', function (e) {
+      drop_zone.style.backgroundColor = "rgba(0, 255, 0 ,0.3)";
       e.preventDefault();
       document.getElementById("file").files = e.dataTransfer.files;
     });

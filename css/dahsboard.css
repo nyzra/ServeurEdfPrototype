@@ -9,6 +9,7 @@
   row-gap: 15px;
   margin-top: 15px;
   background-color: var(--light);
+  margin-top: 40px;
 }
 
 .indicators a {
