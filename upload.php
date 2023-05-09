@@ -142,7 +142,7 @@ foreach ($reader->getSheetIterator() as $sheet) {
     if ($i > 10) {
       if (preg_match("/CONTACT :(.*$)/", $t[15], $matches)) {
         if (preg_match_all("/ {$Metiers} /", $matches[1], $out, PREG_PATTERN_ORDER)) {
-          $pro = "\"". categoryMetier($out[0], $MetiersCategories) . "\"";
+          $pro = categoryMetier($out[0], $MetiersCategories);
           $contact = preg_replace("/{$Metiers}|\./", "", $matches[1]);
 
           $contact = preg_match_all("/(([a-zA-Zà-ÿ]+)\s?([a-zA-Zà-ÿ\+)?\s?([a-zA-Zà-ÿ]+)?\s?([0-9]+)?\s?[-\/\\\]?){1,2}/u", $contact, $matches);
