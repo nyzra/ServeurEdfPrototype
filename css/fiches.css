@@ -1,150 +1,168 @@
 /* Partie pour les différent page d'affichage des fiches */
+.infofiche {
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.topWhiteSpace {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  padding-top: 10px;
+  background-color: var(--light);
+  width: 80%;
+}
+
+
+.title {
+  font-family: "EDF-Light";
+  font-size: 2.5em;
+  min-width: 50%;
+  text-align: center;
+  color: var(--dark);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
 .tier {
+  width: 25%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex: 1;
   min-width: fit-content;
+  border-right: 1.5px solid var(--dark);
+  font-family: "EDF-Light";
+  font-size: 1.75em;
+  color: var(--dark);
 }
 
-.infofiche {
-    border-radius: 10px;
-      padding: 10px 0 10px 0;
-  
-    width: 100%;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-family: "EDF-Regular";
-    font-size: 1.75em;
-    color: var(--dark);
-/*    z-index: 10;*/
-  }
-
-  .topWhiteSpace{position: -webkit-sticky;
-    position: sticky;
-    top: 0px;
-    padding-top: 10px;
-    background-color: var(--light);
-    width: 80%;
-  }
 /* Affichage des données des fiches d'entreposages */
 
 .containerFiches {
-  
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
 
-  }
-  
-  .fiche {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(2, 48, 89);
-    width: 350px;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .fiche p {
-    font-size: 14px;
-    color: white;
-    text-align: center;
-  }
-  
-  .nomColis {
-    padding: 5px;
-    background-color: rgba(4, 119, 191);
-    width: 100%;
-  }
-  
-  .numDemande {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin-top: 30px;
+
+}
+
+.fiche {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+/*  outline: 5px orange solid;*/
+  font-size: "EDF-Light";
+
+}
+
+.fiche p {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+.nomColis {
+  padding: 5px;
+  background-color: var(--lightblue);
+  width: 100%;
+}
+
+.numDemande {
 
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    width: 100%;
-    margin-bottom: 5px;
-    padding: 5px ;
-  }
-  
-  .fitsize{
-    flex-shrink:0;
-  }
-  
-  .affichageInfo {
-    width: 100%;
-    height: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    background-color: white;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .affichageInfo p {
-    color: black;
-  }
-  
-  .raisonFiche {
-    margin-top: 20px;
-    width: 100%;
-  }
-  
-  .caractéristiquesFiche {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-  }
-  .caractéristiquesFiche p{
-    padding: 5px;
-  }
-  .ligneInfo {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: stretch;
-  }
-  
-  .raisonTitle {
-    padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px 10px 5px 10px;
+}
 
-    background-color: rgba(4, 119, 191);
-  }
-  
-  .raison {
-    padding: 5px;
-    background-color: white;
-  
-  }
-  
-  .raison p {
-    color: black;
-  }
-  
-  .Contenus {
-    width: 80%;
-  }
+.fitsize {
+  flex-shrink: 0;
+}
+
+.affichageInfo {
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: var(--white);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.affichageInfo p {
+  color: var(--dark);
+}
+
+.raisonFiche {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.caractéristiquesFiche {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.caractéristiquesFiche p {
+  padding: 5px;
+}
+
+.ligneInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.raisonTitle {
+  padding: 5px;
+
+  background-color: var(--lightblue);
+}
+
+.raison {
+  padding: 5px;
+  background-color: white;
+
+}
+
+.raison p {
+  color: black;
+}
+
+.Contenus {
+  width: 80%;
+}

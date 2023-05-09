@@ -134,7 +134,7 @@ function CreateFicheConforme(infosFiches) {
 \
         <p>Dates</p>\
         <div class="affichageInfo">\
-            <p>${infosFiches["DateDebut"]} - ${infosFiches["DateFin"]}</p>\
+            <p>${infosFiches["DateDebut"]} ${infosFiches["DateFin"]}</p>\
         </div>\
     </div>\
 </div>\
@@ -148,7 +148,7 @@ function CreateFicheConforme(infosFiches) {
     </div>\
     <div class="caractéristiquesFiche">\
 \
-        <p>Numero de local</p>\
+        <p>Local</p>\
         <div class="affichageInfo">\
             <p>${infosFiches["NumLocal"]}</p>\
         </div>\
@@ -178,7 +178,7 @@ function createFicheNonConforme(infosFiches) {
 \
         <p>Dates</p>\
         <div class="affichageInfo">\
-            <p>${infosFiches["DateDebut"]} - ${infosFiches["DateFin"]}</p>\
+            <p>${infosFiches["DateDebut"]} ${infosFiches["DateFin"]}</p>\
         </div>\
     </div>\
 </div>\
@@ -192,7 +192,7 @@ function createFicheNonConforme(infosFiches) {
     </div>\
     <div class="caractéristiquesFiche">\
 \
-        <p>Numero de local</p>\
+        <p>Local</p>\
         <div class="affichageInfo">\
             <p>${infosFiches["NumLocal"]}</p>\
         </div>\
@@ -239,7 +239,7 @@ function CreateFicheFantomes(infosFiches) {
     </div>\
     <div class="caractéristiquesFiche">\
 \
-        <p>Numero de local</p>\
+        <p>Local</p>\
         <div class="affichageInfo">\
             <p>${infosFiches["NumLocal"]}</p>\
         </div>\

@@ -20,27 +20,21 @@
 
 
 <body>
-
     <nav data-include="nav"></nav>
 
+    <div class="choice" data-include="metierChoice"></div>
 
-        <div class="choice" data-include="metierChoice">
-           
+    <div class="topWhiteSpace">
+        <div class="infofiche redBackground">
+            <div class="tier" data-include="sortFilter"></div>
+
+            <p class="title">Fiches non conformes</p>
+            <div data-include="sendMailButton" class="mailButton"></div>
         </div>
-        <div class="topWhiteSpace">
-            <div class="infofiche redBackground">
-                <div class=" tier" data-include="sortFilter">
-                    
-                </div>
-
-                <p>Fiches non conformes</p>
-                <div data-include="sendMailButton" class="tier"></div>
-            </div>
-        </div>
+    </div>
 
 
-        <div class="containerFiches">
-        </div>
+    <div class="containerFiches"></div>
 
     <div data-include="buttonToTop"></div>
     <script src="scripts/jquery-3.6.4.js" type="text/javascript"></script>

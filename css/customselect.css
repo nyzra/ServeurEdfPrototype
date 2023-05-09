@@ -1,61 +1,69 @@
-
 /** Selection du métier **/
 
- /* The container must be positioned relative: */
- .custom-select {
-  
-    height: fit-content;
-    position: relative;
-    
-  }
-  
-  .custom-select select {
-    display: none; /*hide original SELECT element: */
-  }
-  
-  
-  /* Style the arrow inside the select element: */
-  .select-selected:after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    right: 0px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: var(--dark) transparent transparent transparent;
-  }
-  
-  /* Point the arrow upwards when the select box is open (active): */
-  .select-selected.select-arrow-active:after {
-    border-color: transparent transparent var(--dark) transparent;
-    top: 25%;
-  }
-  
-  /* style the items (options), including the selected item: */
-  .select-items div,.select-selected {
-    
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    
-    cursor: pointer;
-  }
-  
-  /* Style items (options): */
-  .select-items {
-    position: absolute;
-    background-color: DodgerBlue;
-    top: 100%;
-    left: 0;
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  height: fit-content;
+  font-family: "EDF-Light";
+}
 
-    z-index: 99;
-  }
-  
-  /* Hide the items when the select box is closed: */
-  .select-hide {
-    display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-  } 
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+.select-selected {
+  font-size: 1em;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 45%;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-color: var(--dark) transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+
+  transform: rotate(180deg) translateY(5px);
+
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: var(--dark);
+  padding: 8px 20px 8px 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: var(--white);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: fit-content;
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: var(--light);
+}
