@@ -120,7 +120,7 @@ function categoryMetier($m, $MetiersCategories)
       }
     }
   }
-  return "";
+  return $m[0];
 }
 $Metiers = "\b" . implode("\b|\b", $Metiers) . "\b";
 
@@ -220,6 +220,7 @@ function Export_csv($result)
   $data = preg_replace("/\\\\u2019/", "'", $data);
   $data = preg_replace("/\\\\u00c9/", "É", $data);
   $data = preg_replace("/\\\\\"/", "\"", $data);
+  $data = preg_replace("/\"\s/", "\"", $data);
   $data = preg_replace("/\"\[/", "[", $data);
   $data = preg_replace("/\]\"/", "]", $data);
   return $data;
