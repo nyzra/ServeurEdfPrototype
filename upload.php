@@ -108,14 +108,16 @@ function categoryMetier($m, $MetiersCategories)
   $test = 0;
   foreach ($MetiersCategories as $key => $value) {
     foreach ($value as $v) {
-      if ($m[0] == $v) {
+      $value_spaceless=preg_replace("/^\s/", "", $m[0]);
+      if ($value_spaceless == $v) {
         return $key;
       }
     }
   }
   if ($test == 0 && count($m)>1) {
     foreach ($MetiersCategories as $key => $value) {
-      if ($m[1] == $value) {
+      $value_spaceless=preg_replace("/^\s/", "", $m[1]);
+      if ($value_spaceless == $value) {
         return $key;
       }
     }
@@ -144,7 +146,6 @@ foreach ($reader->getSheetIterator() as $sheet) {
         if (preg_match_all("/ {$Metiers} /", $matches[1], $out, PREG_PATTERN_ORDER)) {
           $pro = categoryMetier($out[0], $MetiersCategories);
           $contact = preg_replace("/{$Metiers}|\./", "", $matches[1]);
-
           $contact = preg_match_all("/(([a-zA-Zà-ÿ]+)\s?([a-zA-Zà-ÿ\+)?\s?([a-zA-Zà-ÿ]+)?\s?([0-9]+)?\s?[-\/\\\]?){1,2}/u", $contact, $matches);
           if ($matches[2][0] == 'EL') {
             $contact = $matches[2][1] . ' ' . $matches[3][1] . ' ' . $matches[4][1];
@@ -220,7 +221,7 @@ function Export_csv($result)
   $data = preg_replace("/\\\\u2019/", "'", $data);
   $data = preg_replace("/\\\\u00c9/", "É", $data);
   $data = preg_replace("/\\\\\"/", "\"", $data);
-  $data = preg_replace("/\"\s/", "\"", $data);
+  //$data = preg_replace("/\"\s/", "\"", $data);
   $data = preg_replace("/\"\[/", "[", $data);
   $data = preg_replace("/\]\"/", "]", $data);
   return $data;
