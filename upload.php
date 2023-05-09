@@ -162,7 +162,7 @@ foreach ($reader->getSheetIterator() as $sheet) {
           //echo $contact.'<br>';
         }
       } else {
-        $pro = '["NULL"]';
+        $pro = 'null';
       }
       if ($t[6] == "Ecart pirate") {
         $sql_insert = "INSERT INTO `S8`(`Tranche`, `Localisation`, `Batiment`, `Niveau`, `NumLocal`, `NumDemande`, `NomColis`,`Motif`, `Precision`,  `Contact`) 
