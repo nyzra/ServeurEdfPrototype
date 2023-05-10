@@ -121,7 +121,7 @@ function CreateFicheConforme(infosFiches) {
     <p>${infosFiches["NomColis"]}</p>\
 </div>\
 <div class="numDemande">\
-    <p class="fitsize" >Demande numéro :</p>\
+    <p class="fitsize" >Demande numéro :&nbsp;</p>\
     <p>${infosFiches["NumDemande"]}</p>\
 </div>\
 <div class="ligneInfo">\
@@ -165,7 +165,7 @@ function createFicheNonConforme(infosFiches) {
     <p>${infosFiches["NomColis"]}</p>\
 </div>\
 <div class="numDemande">\
-    <p class="fitsize" >Demande numéro :</p>\
+    <p class="fitsize" >Demande numéro :&nbsp;</p>\
     <p>${infosFiches["NumDemande"]}</p>\
 </div>\
 <div class="ligneInfo">\

@@ -1,6 +1,7 @@
 import { printGlobalCharts } from './GlobalCharts.js';
 import { printMetierCharts } from './MetierCharts.js';
 
+
 function printGraph(data){
 	const ctx1 = document.getElementById('chart1');
 	const ctx2 = document.getElementById('chart2');

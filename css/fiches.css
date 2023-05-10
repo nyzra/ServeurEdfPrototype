@@ -66,24 +66,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--blue);
+  background-color: var(--lightblue);
   width: 350px;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
 /*  outline: 5px orange solid;*/
   font-size: "EDF-Light";
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
 }
 
 .fiche p {
   font-size: 14px;
-  color: white;
+  color: var(--white);
   text-align: center;
 }
 
 .nomColis {
   padding: 5px;
-  background-color: var(--lightblue);
+  background-color: var(--blue);
   width: 100%;
 }
 
@@ -150,17 +151,17 @@
 .raisonTitle {
   padding: 5px;
 
-  background-color: var(--lightblue);
+  background-color: var(--blue);
 }
 
 .raison {
   padding: 5px;
-  background-color: white;
+  background-color: var(--white);
 
 }
 
 .raison p {
-  color: black;
+  color: var(--dark);
 }
 
 .Contenus {
