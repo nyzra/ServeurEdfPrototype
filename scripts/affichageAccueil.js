@@ -44,7 +44,7 @@ function showFichesFiltered() {
     $(".nbPirates").append(`${fichesFantomes.length } `)
 
     filter.notFilterFiches = fiches
-    printGraph(filter.filteredFiches)
+    printGraph(filter.metierChoice);
 }
 
 filter.handler= showFichesFiltered

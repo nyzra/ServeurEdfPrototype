@@ -17,7 +17,7 @@ class Filter{
     set metierChoice(str){
         this._metierChoice=str
         this.filteredFiches=this.ApplyFilter(this._notFilterFiches)
-        console.log(this.filteredFiches)
+        // console.log(this.filteredFiches)
         if(filter.filteredFiches!= null) this.handler()
 
     }
@@ -62,7 +62,7 @@ class Filter{
     
     SortFiler(fiches){
         if(this._filterChoice ==="" || fiches ==null) return fiches
-        console.log(this._filterChoice)
+        // console.log(this._filterChoice)
         fiches.sort(this.propComparator(this._filterChoice));
 
         if(this._filterChoice!="Contact"){
