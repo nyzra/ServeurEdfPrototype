@@ -76,7 +76,7 @@ class Filter{
         if(this._metierChoice ==="" ) return null
         if(this._metierChoice ==="Global" ) return fiches
         return fiches.filter(fiche => {
-            return fiche["Metier"][0]=== this._metierChoice})
+            return fiche["Metier"]=== this._metierChoice})
     }
     
     ApplyFilter(fiches){
