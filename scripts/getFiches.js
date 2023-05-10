@@ -19,10 +19,12 @@ let S8gohst = []
 
 
 async function loadData() {
-    S1 = await loadJson('Data/S1.json')
-    S1gohst = S1.filter(fiche => {
-        return fiche["NomColis"] === "Ecart pirate"
-    })
+
+        S1 = await loadJson('Data/S1.json')
+        S1gohst = S1.filter(fiche => {
+            return fiche["NomColis"] === "Ecart pirate"
+        })
+
 
     S1 = S1.filter(fiche => {
         return fiche["NomColis"] != "Ecart pirate"
