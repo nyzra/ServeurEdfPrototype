@@ -1,8 +1,9 @@
-import { getfiches1Semaine, CreateFicheConforme ,loadData } from "./getFiches;js"
+import { getfiches1Semaine, CreateFicheConforme ,loadData } from "./getFiches.js"
 await loadData()
 let filter = window.filter
 
 let fiches = getfiches1Semaine()
+console.log(fiches)
 filter.notFilterFiches = fiches
 
 function showFichesFiltered() {
