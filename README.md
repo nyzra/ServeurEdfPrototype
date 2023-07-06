@@ -9,9 +9,6 @@ Dans le cadre du challenge Megawatt'UTT Organisé par l'Université de Technolog
 
 ## Pour commencer
 
-Entrez ici les instructions pour bien débuter avec votre projet...
-
-
 ### Installation
 
 Actuellement notre soution est capable de touner sur un serveur local.
