@@ -21,6 +21,8 @@
 
 
 .title {
+  margin-left: 10px;
+  margin-right: 10px;
   font-family: "EDF-Light";
   font-size: 2.5em;
   min-width: 50%;
